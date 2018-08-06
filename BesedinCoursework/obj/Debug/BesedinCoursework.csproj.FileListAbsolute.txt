@@ -1,0 +1,46 @@
+D:\CAD Programing\2 семестр\BesedinCoursework\BesedinCoursework\bin\Debug\BesedinCoursework.exe.config
+D:\CAD Programing\2 семестр\BesedinCoursework\BesedinCoursework\bin\Debug\BesedinCoursework.exe
+D:\CAD Programing\2 семестр\BesedinCoursework\BesedinCoursework\bin\Debug\BesedinCoursework.pdb
+D:\CAD Programing\2 семестр\BesedinCoursework\BesedinCoursework\obj\Debug\BesedinCoursework.csprojResolveAssemblyReference.cache
+D:\CAD Programing\2 семестр\BesedinCoursework\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.ResolveComReference.cache
+D:\CAD Programing\2 семестр\BesedinCoursework\BesedinCoursework\obj\Debug\BesedinCoursework.Properties.Resources.resources
+D:\CAD Programing\2 семестр\BesedinCoursework\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.GenerateResource.Cache
+D:\CAD Programing\2 семестр\BesedinCoursework\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.CoreCompileInputs.cache
+D:\CAD Programing\2 семестр\BesedinCoursework\BesedinCoursework\obj\Debug\BesedinCoursework.exe
+D:\CAD Programing\2 семестр\BesedinCoursework\BesedinCoursework\obj\Debug\BesedinCoursework.pdb
+D:\CAD Programing\2 семестр\BesedinCoursework\BesedinCoursework\obj\Debug\BesedinCoursework.MainWindow.resources
+D:\CAD Programing\2 семестр\BesedinCoursework\BesedinCoursework\obj\Debug\BesedinCoursework.InventorControl.resources
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\bin\Debug\BesedinCoursework.exe.config
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\bin\Debug\BesedinCoursework.exe
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\bin\Debug\BesedinCoursework.pdb
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.ResolveComReference.cache
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.InventorControl.resources
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.MainWindow.resources
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.Properties.Resources.resources
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.GenerateResource.Cache
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.CoreCompileInputs.cache
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.exe
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.pdb
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.MainBody.resources
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\Interop.Office.dll
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.Top.resources
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.Screw.resources
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.Bottom.resources
+D:\CAD Programing\2 семестр\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.Hold.resources
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\bin\Debug\BesedinCoursework.exe.config
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\bin\Debug\BesedinCoursework.exe
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\bin\Debug\BesedinCoursework.pdb
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\Interop.Office.dll
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.ResolveComReference.cache
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.Bottom.resources
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.Hold.resources
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.InventorControl.resources
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.MainBody.resources
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.MainWindow.resources
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.Properties.Resources.resources
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.Screw.resources
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.Top.resources
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.GenerateResource.Cache
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.CoreCompileInputs.cache
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.exe
+C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.pdb
