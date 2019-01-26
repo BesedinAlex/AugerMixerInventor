@@ -7,6 +7,15 @@ namespace BesedinCoursework
 {
     public partial class Bottom : Form
     {
+        private Inventor.Application ThisApplication = null;
+        private Dictionary<string, PartDocument> oPartDoc = new Dictionary<string, PartDocument>();
+        private Dictionary<string, string> oFileName = new Dictionary<string, string>();
+        private Dictionary<string, PartComponentDefinition> oCompDef = new Dictionary<string, PartComponentDefinition>();
+        private Dictionary<string, TransientGeometry> oTransGeom = new Dictionary<string, TransientGeometry>();
+        double D1 = 440, H1 = 30, D2 = 350, H2 = 50, DR = 395, oR = 11; // Основание
+        double L1 = 480, L2 = 440, T = 15, HB = 250, D3 = 250, H3 = 90; // "Коробка"
+        double H4 = 400, D4D = 30, D4d = 20, A = 40; // Трубки
+        double H5 = 205, D51 = 200, L51 = 20, D52 = 245, L52 = 45, D53 = 100, L53 = 22.5, D54 = 122.5, L54 = 35; // Крышка
         public Bottom()
         {
             InitializeComponent();
@@ -37,15 +46,6 @@ namespace BesedinCoursework
             textBox25.Text = Convert.ToString(D54);
             textBox26.Text = Convert.ToString(L54);
         }
-        private Inventor.Application ThisApplication = null;
-        private Dictionary<string, PartDocument> oPartDoc = new Dictionary<string, PartDocument>();
-        private Dictionary<string, string> oFileName = new Dictionary<string, string>();
-        private Dictionary<string, PartComponentDefinition> oCompDef = new Dictionary<string, PartComponentDefinition>();
-        private Dictionary<string, TransientGeometry> oTransGeom = new Dictionary<string, TransientGeometry>();
-        double D1 = 440, H1 = 30, D2 = 350, H2 = 50, DR = 395, oR = 11; // Основание
-        double L1 = 480, L2 = 440, T = 15, HB = 250, D3 = 250, H3 = 90; // "Коробка"
-        double H4 = 400, D4D = 30, D4d = 20, A = 40; // Трубки
-        double H5 = 205, D51 = 200, L51 = 20, D52 = 245, L52 = 45, D53 = 100, L53 = 22.5, D54 = 122.5, L54 = 35; // Крышка
         private void Build_Click(object sender, EventArgs e)
         {
             try

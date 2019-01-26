@@ -6,6 +6,14 @@ namespace BesedinCoursework
 {
     public partial class MainBody : Form
     {
+        private Inventor.Application ThisApplication = null;
+        private Dictionary<string, PartDocument> oPartDoc = new Dictionary<string, PartDocument>();
+        private Dictionary<string, string> oFileName = new Dictionary<string, string>();
+        private Dictionary<string, PartComponentDefinition> oCompDef = new Dictionary<string, PartComponentDefinition>();
+        private Dictionary<string, TransientGeometry> oTransGeom = new Dictionary<string, TransientGeometry>();
+        private Dictionary<string, Transaction> oTrans = new Dictionary<string, Transaction>();
+        public static double H = 1635, Degree = 18;
+        double D = 1530, B = 100, A = 15, T = 40, Rb = 730, Rm = 24, Ds = 250;
         public MainBody()
         {
             InitializeComponent();
@@ -18,14 +26,6 @@ namespace BesedinCoursework
             textBox8.Text = Convert.ToString(Rm);
             textBox10.Text = Convert.ToString(Ds);
         }
-        private Inventor.Application ThisApplication = null;
-        private Dictionary<string, PartDocument> oPartDoc = new Dictionary<string, PartDocument>();
-        private Dictionary<string, string> oFileName = new Dictionary<string, string>();
-        private Dictionary<string, PartComponentDefinition> oCompDef = new Dictionary<string, PartComponentDefinition>();
-        private Dictionary<string, TransientGeometry> oTransGeom = new Dictionary<string, TransientGeometry>();
-        private Dictionary<string, Transaction> oTrans = new Dictionary<string, Transaction>();
-        public static double H = 1635, Degree = 18;
-        double D = 1530, B = 100, A = 15, T = 40, Rb = 730, Rm = 24, Ds = 250;
         private void Build_Click(object sender, EventArgs e)
         {
             try
@@ -165,7 +165,8 @@ namespace BesedinCoursework
                     B = D / 2 / 2;
                     textBox3.Text = Convert.ToString(B);
                 }
-                else B = Convert.ToDouble(textBox3.Text);
+                else
+                    B = Convert.ToDouble(textBox3.Text);
             }
             catch
             {
@@ -194,7 +195,8 @@ namespace BesedinCoursework
                     Rb = 730;
                     textBox7.Text = Convert.ToString(Rb);
                 }
-                else Rb = Convert.ToDouble(textBox7.Text);
+                else
+                    Rb = Convert.ToDouble(textBox7.Text);
             }
             catch
             {
@@ -218,7 +220,8 @@ namespace BesedinCoursework
                     Ds = (D / 2 - B) / 2;
                     textBox10.Text = Convert.ToString(Ds);
                 }
-                else Ds = Convert.ToDouble(textBox10.Text);
+                else
+                    Ds = Convert.ToDouble(textBox10.Text);
             }
             catch
             {

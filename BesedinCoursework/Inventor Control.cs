@@ -4,13 +4,15 @@ namespace BesedinCoursework
 {
     public partial class InventorControl : Form
     {
+        private Inventor.Application ThisApplication = null; // Проверка активности Inventor
         public InventorControl()
         {
             InitializeComponent();
             try
             {
                 ThisApplication = (Inventor.Application)System.Runtime.InteropServices.Marshal.GetActiveObject("Inventor.Application");
-                if (ThisApplication != null) label1.Text = "Inventor запущен.";
+                if (ThisApplication != null)
+                    label1.Text = "Inventor запущен.";
                 InventorVersions.Enabled = false;
                 InventorLaunch.Enabled = false;
             }
@@ -20,10 +22,10 @@ namespace BesedinCoursework
                 InventorVersions.Enabled = true;
                 InventorLaunch.Enabled = true;
             }
-            this.InventorVersions.Items.AddRange(new object[] { "2015", "2016", "2017", "2018", "2019" });
+            InventorVersions.Items.AddRange(new object[] { "2015", "2016", "2017", "2018", "2019" });
             InventorVersions.Text = "2017";
         }
-        private Inventor.Application ThisApplication = null; // Проверка активности Inventor
+        
         private void InventorLaunch_Click(object sender, EventArgs e) // Кнопка запуска Inventor
         {
             try

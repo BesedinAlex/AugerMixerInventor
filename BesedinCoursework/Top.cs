@@ -7,6 +7,15 @@ namespace BesedinCoursework
 {
     public partial class Top : Form
     {
+        private Inventor.Application ThisApplication = null;
+        private Dictionary<string, PartDocument> oPartDoc = new Dictionary<string, PartDocument>();
+        private Dictionary<string, string> oFileName = new Dictionary<string, string>();
+        private Dictionary<string, PartComponentDefinition> oCompDef = new Dictionary<string, PartComponentDefinition>();
+        private Dictionary<string, TransientGeometry> oTransGeom = new Dictionary<string, TransientGeometry>();
+        double D = 1530, D1 = 1400, T = 40, H = 200, A = 40, ACount = 8; // Основа крышки
+        double HR = 305, hR = 30, RR = 580, DR = 180, dR = 120, OR = 75, oR = 18, TR = 100; // Резервные проходы
+        double MBRb = 730, MBRm = 24; // Отверстия под болты
+        double D1R = 380, d1R = 260, T1R = 240, o1R = 22, O1R = 168, R1R = 540; // Загрузка сыпучих материалов
         public Top()
         {
             InitializeComponent();
@@ -33,15 +42,6 @@ namespace BesedinCoursework
             textBox21.Text = Convert.ToString(O1R);
             textBox22.Text = Convert.ToString(o1R);
         }
-        private Inventor.Application ThisApplication = null;
-        private Dictionary<string, PartDocument> oPartDoc = new Dictionary<string, PartDocument>();
-        private Dictionary<string, string> oFileName = new Dictionary<string, string>();
-        private Dictionary<string, PartComponentDefinition> oCompDef = new Dictionary<string, PartComponentDefinition>();
-        private Dictionary<string, TransientGeometry> oTransGeom = new Dictionary<string, TransientGeometry>();
-        double D = 1530, D1 = 1400, T = 40, H = 200, A = 40, ACount = 8; // Основа крышки
-        double HR = 305, hR = 30, RR = 580, DR = 180, dR = 120, OR = 75, oR = 18, TR = 100; // Резервные проходы
-        double MBRb = 730, MBRm = 24; // Отверстия под болты
-        double D1R = 380, d1R = 260, T1R = 240, o1R = 22, O1R = 168, R1R = 540; // Загрузка сыпучих материалов
         private void Build_Click(object sender, EventArgs e)
         {
             try
@@ -54,7 +54,10 @@ namespace BesedinCoursework
                 IC.ShowDialog();
                 return;
             }
-            D /= 10; D1 /= 10; T /= 10; H /= 10;
+            D /= 10;
+            D1 /= 10;
+            T /= 10;
+            H /= 10;
             oPartDoc["К"] = (PartDocument)ThisApplication.Documents.Add(DocumentTypeEnum.kPartDocumentObject, ThisApplication.FileManager.GetTemplateFile(DocumentTypeEnum.kPartDocumentObject));
             oCompDef["К"] = oPartDoc["К"].ComponentDefinition;
             oTransGeom["К"] = ThisApplication.TransientGeometry;
@@ -182,7 +185,10 @@ namespace BesedinCoursework
             ObjectCollection objCollection11 = ThisApplication.TransientObjects.CreateObjectCollection();
             objCollection11.Add(oExtrudeDef11);
             CircularPatternFeature CircularPatternFeature11 = oCompDef["К"].Features.CircularPatternFeatures.Add(objCollection11, Axis11, true, 12, "360 degree", true, PatternComputeTypeEnum.kIdenticalCompute);
-            D *= 10; D1 *= 10; T *= 10; H *= 10;
+            D *= 10;
+            D1 *= 10;
+            T *= 10;
+            H *= 10;
             MessageBox.Show("Создание крышки завершено.", "Построение крышки");
         }
         private void Save_Click(object sender, EventArgs e)

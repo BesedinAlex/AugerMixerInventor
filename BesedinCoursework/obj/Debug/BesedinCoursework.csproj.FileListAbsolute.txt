@@ -44,3 +44,21 @@ C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Deb
 C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.CoreCompileInputs.cache
 C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.exe
 C:\Users\171-333\Desktop\Курсовая работа\BesedinCoursework\obj\Debug\BesedinCoursework.pdb
+D:\Projects\Student_CourseWork_2\BesedinCoursework\bin\Debug\BesedinCoursework.exe.config
+D:\Projects\Student_CourseWork_2\BesedinCoursework\bin\Debug\BesedinCoursework.exe
+D:\Projects\Student_CourseWork_2\BesedinCoursework\bin\Debug\BesedinCoursework.pdb
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.csprojAssemblyReference.cache
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\Interop.Office.dll
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.ResolveComReference.cache
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.Bottom.resources
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.Hold.resources
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.InventorControl.resources
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.MainBody.resources
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.Properties.Resources.resources
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.Screw.resources
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.Top.resources
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.GenerateResource.cache
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.csproj.CoreCompileInputs.cache
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.exe
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.pdb
+D:\Projects\Student_CourseWork_2\BesedinCoursework\obj\Debug\BesedinCoursework.Assembly.resources

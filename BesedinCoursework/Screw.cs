@@ -7,6 +7,12 @@ namespace BesedinCoursework
 {
     public partial class Screw : Form
     {
+        private Inventor.Application ThisApplication = null;
+        private Dictionary<string, PartDocument> oPartDoc = new Dictionary<string, PartDocument>();
+        private Dictionary<string, string> oFileName = new Dictionary<string, string>();
+        private Dictionary<string, PartComponentDefinition> oCompDef = new Dictionary<string, PartComponentDefinition>();
+        private Dictionary<string, TransientGeometry> oTransGeom = new Dictionary<string, TransientGeometry>();
+        double H = 1700, D = 220, D1 = 100, H1 = 120, H2 = 1300, T = 25, H3 = 1500, A = 40;
         public Screw()
         {
             InitializeComponent();
@@ -19,12 +25,6 @@ namespace BesedinCoursework
             textBox7.Text = Convert.ToString(H3);
             textBox8.Text = Convert.ToString(A);
         }
-        private Inventor.Application ThisApplication = null;
-        private Dictionary<string, PartDocument> oPartDoc = new Dictionary<string, PartDocument>();
-        private Dictionary<string, string> oFileName = new Dictionary<string, string>();
-        private Dictionary<string, PartComponentDefinition> oCompDef = new Dictionary<string, PartComponentDefinition>();
-        private Dictionary<string, TransientGeometry> oTransGeom = new Dictionary<string, TransientGeometry>();
-        double H = 1700, D = 220, D1 = 100, H1 = 120, H2 = 1300, T = 25, H3 = 1500, A = 40;
         private void Build_Click(object sender, EventArgs e)
         {
             try
@@ -37,7 +37,14 @@ namespace BesedinCoursework
                 IC.ShowDialog();
                 return;
             }
-            H /= 10; D /= 10; D1 /= 10; H1 /= 10; H2 /= 10; T /= 10; H3 /= 10; A /= 10;
+            H /= 10;
+            D /= 10;
+            D1 /= 10;
+            H1 /= 10;
+            H2 /= 10;
+            T /= 10;
+            H3 /= 10;
+            A /= 10;
             oPartDoc["Шнек"] = (PartDocument)ThisApplication.Documents.Add(DocumentTypeEnum.kPartDocumentObject, ThisApplication.FileManager.GetTemplateFile(DocumentTypeEnum.kPartDocumentObject));
             oCompDef["Шнек"] = oPartDoc["Шнек"].ComponentDefinition;
             oTransGeom["Шнек"] = ThisApplication.TransientGeometry;
@@ -91,7 +98,14 @@ namespace BesedinCoursework
             line[3] = oSketch3.SketchLines.AddByTwoPoints(point[3], point[0]);
             Profile oProfile3 = (Profile)oSketch3.Profiles.AddForSolid();
             RevolveFeature revolvefeature3 = oCompDef["Шнек"].Features.RevolveFeatures.AddFull(oProfile3, line[0], PartFeatureOperationEnum.kJoinOperation);
-            H *= 10; D *= 10; D1 *= 10; H1 *= 10; H2 *= 10; T *= 10; H3 *= 10; A *= 10;
+            H *= 10;
+            D *= 10;
+            D1 *= 10;
+            H1 *= 10;
+            H2 *= 10;
+            T *= 10;
+            H3 *= 10;
+            A *= 10;
             MessageBox.Show("Создание шнека завершено.", "Построение шнека");
         }
         private void Save_Click(object sender, EventArgs e)
