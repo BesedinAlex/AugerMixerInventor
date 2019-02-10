@@ -175,7 +175,7 @@ namespace BesedinCoursework
             line[9] = oSketch10.SketchLines.AddByTwoPoints(point[9], point[0]);
             Profile oProfile10 = (Profile)oSketch10.Profiles.AddForSolid();
             RevolveFeature revolvefeature10 = api.getCompDef("КВ").Features.RevolveFeatures.AddFull(oProfile10, line[9], PartFeatureOperationEnum.kJoinOperation);
-            MessageBox.Show("Создание корпуса для выгрузки материалов завершено.", "Построение корпуса для выгрузки материалов");
+            MessageBox.Show("Создание корпуса для выгрузки материалов завершено.", Text);
         }
         private void Save_Click(object sender, EventArgs e)
         {
@@ -204,61 +204,29 @@ namespace BesedinCoursework
             }
             catch
             {
-                MessageBox.Show("Деталь ещё не создана, либо программа не видит созданную деталь.", "Построение корпуса для выгрузки материалов");
+                MessageBox.Show("Деталь ещё не создана, либо программа не видит созданную деталь.", Text);
             }
         }
-        private void error_check(System.Windows.Forms.TextBox textBox, double Number) // Проверка ошибки в textBox
-        {
-            try
-            {
-                if (Convert.ToDouble(textBox.Text) <= 0)
-                {
-                    MessageBox.Show("Введите значение больше нуля!", "Построение корпуса для выгрузки материалов");
-                    textBox.Text = Convert.ToString(Number);
-                }
-            }
-            catch
-            {
-                textBox.Text = Convert.ToString(Number);
-            }
-        }
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox2, 440);
-            D1 = Convert.ToDouble(textBox2.Text);
-        }
+        private void textBox2_TextChanged(object sender, EventArgs e) =>
+            D1 = Auto.checkTextBoxChange(textBox2, 440);
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            error_check(textBox3, 30);
-            H1 = Convert.ToDouble(textBox3.Text);
+            H1 = Auto.checkTextBoxChange(textBox3, 30);
             textBox1.Text = Convert.ToString(H1 + H2 + HB + H3);
         }
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox4, 395);
-            DR = Convert.ToDouble(textBox4.Text);
-        }
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox5, 11);
-            oR = Convert.ToDouble(textBox5.Text);
-        }
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox6, 350);
-            D2 = Convert.ToDouble(textBox6.Text);
-        }
+        private void textBox4_TextChanged(object sender, EventArgs e) =>
+            DR = Auto.checkTextBoxChange(textBox4, 395);
+        private void textBox5_TextChanged(object sender, EventArgs e) =>
+            oR = Auto.checkTextBoxChange(textBox5, 11);
+        private void textBox6_TextChanged(object sender, EventArgs e) =>
+            D2 = Auto.checkTextBoxChange(textBox6, 350);
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
-            error_check(textBox7, 50);
-            H2 = Convert.ToDouble(textBox7.Text);
+            H2 = Auto.checkTextBoxChange(textBox7, 50);
             textBox1.Text = Convert.ToString(H1 + H2 + HB + H3);
         }
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox8, 480);
-            L1 = Convert.ToDouble(textBox8.Text);
-        }
+        private void textBox8_TextChanged(object sender, EventArgs e) =>
+            L1 = Auto.checkTextBoxChange(textBox8, 480);
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
             error_check(textBox9, 440);
