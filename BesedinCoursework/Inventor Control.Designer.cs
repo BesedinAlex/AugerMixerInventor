@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventorControl));
             this.label1 = new System.Windows.Forms.Label();
-            this.InventorVersions = new System.Windows.Forms.ComboBox();
+            this.inventorVersions = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.InventorLaunch = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -47,11 +47,11 @@
             // 
             // InventorVersions
             // 
-            this.InventorVersions.FormattingEnabled = true;
-            this.InventorVersions.Location = new System.Drawing.Point(64, 32);
-            this.InventorVersions.Name = "InventorVersions";
-            this.InventorVersions.Size = new System.Drawing.Size(55, 21);
-            this.InventorVersions.TabIndex = 1;
+            this.inventorVersions.FormattingEnabled = true;
+            this.inventorVersions.Location = new System.Drawing.Point(64, 32);
+            this.inventorVersions.Name = "InventorVersions";
+            this.inventorVersions.Size = new System.Drawing.Size(55, 21);
+            this.inventorVersions.TabIndex = 1;
             // 
             // label2
             // 
@@ -79,7 +79,7 @@
             this.ClientSize = new System.Drawing.Size(200, 57);
             this.Controls.Add(this.InventorLaunch);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.InventorVersions);
+            this.Controls.Add(this.inventorVersions);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -95,7 +95,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox InventorVersions;
+        private System.Windows.Forms.ComboBox inventorVersions;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button InventorLaunch;
     }
