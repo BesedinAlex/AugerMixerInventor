@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainBody));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Build = new System.Windows.Forms.Button();
+            this.BuildButton = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -69,15 +69,15 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "H";
             // 
-            // Build
+            // BuildButton
             // 
-            this.Build.Location = new System.Drawing.Point(430, 576);
-            this.Build.Name = "Build";
-            this.Build.Size = new System.Drawing.Size(109, 23);
-            this.Build.TabIndex = 8;
-            this.Build.Text = "Создать деталь";
-            this.Build.UseVisualStyleBackColor = true;
-            this.Build.Click += new System.EventHandler(this.Build_Click);
+            this.BuildButton.Location = new System.Drawing.Point(430, 576);
+            this.BuildButton.Name = "BuildButton";
+            this.BuildButton.Size = new System.Drawing.Size(109, 23);
+            this.BuildButton.TabIndex = 8;
+            this.BuildButton.Text = "Создать деталь";
+            this.BuildButton.UseVisualStyleBackColor = true;
+            this.BuildButton.Click += new System.EventHandler(this.Build_Click);
             // 
             // Save
             // 
@@ -239,7 +239,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Save);
-            this.Controls.Add(this.Build);
+            this.Controls.Add(this.BuildButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -258,7 +258,7 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Build;
+        private System.Windows.Forms.Button BuildButton;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.PictureBox pictureBox1;

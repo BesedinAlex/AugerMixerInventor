@@ -12,12 +12,12 @@ namespace BesedinCoursework
         /// Returns value entered to textBox, if it's double.
         /// </summary>
         /// <param name="textBox">
-        /// The one you checks for possible mistakes.
+        /// Where it checks for possible mistakes.
         /// </param>
         /// <param name="defaultDouble">
-        /// Returns it, if you try to enter none.
+        /// Returns it, if you make mistake.
         /// </param>
-        public static double checkTextBoxChange(System.Windows.Forms.TextBox textBox, double defaultDouble)
+        public static double checkTextBoxChange(TextBox textBox, double defaultDouble)
         {
             try
             {
@@ -31,8 +31,11 @@ namespace BesedinCoursework
             }
         }
         /// <summary>
-        /// Checks if app is active. Returns null if it isn't.
+        /// Checks if Inventor is active and connects to it.
         /// </summary>
+        /// <returns>
+        /// Returns connection to Inventor. If there's no connection, returns null.
+        /// </returns>
         public static Inventor.Application appActivity(Inventor.Application app)
         {
             try
@@ -50,7 +53,7 @@ namespace BesedinCoursework
         /// Saves the .ipt.
         /// </summary>
         /// <param name="app">
-        /// Links the app.
+        /// Links Inventor.
         /// </param>
         public static void savePartFunction(Inventor.Application app, SaveFileDialog saveFileDialog, Form form, InventorAPI api)
         {

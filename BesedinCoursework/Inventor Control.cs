@@ -5,14 +5,14 @@ namespace BesedinCoursework
 {
     public partial class InventorControl : Form
     {
-        private Inventor.Application thisApplication = null;
+        private Inventor.Application app = null;
         public InventorControl()
         {
             InitializeComponent();
             try
             {
-                thisApplication = (Inventor.Application)System.Runtime.InteropServices.Marshal.GetActiveObject("Inventor.Application");
-                if (thisApplication != null)
+                app = (Inventor.Application)System.Runtime.InteropServices.Marshal.GetActiveObject("Inventor.Application");
+                if (app != null)
                     label1.Text = "Inventor запущен.";
                 inventorVersions.Enabled = false;
                 InventorLaunch.Enabled = false;
@@ -24,7 +24,7 @@ namespace BesedinCoursework
                 InventorLaunch.Enabled = true;
             }
             inventorVersions.Items.AddRange(new object[] { "2015", "2016", "2017", "2018", "2019" });
-            inventorVersions.Text = "2017";
+            inventorVersions.Text = "2019";
         }
         private void launchTry(char drive)
         {

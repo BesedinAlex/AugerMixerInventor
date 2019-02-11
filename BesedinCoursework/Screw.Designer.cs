@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Screw));
-            this.Build = new System.Windows.Forms.Button();
+            this.BuildButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -52,15 +52,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Build
+            // BuildButton
             // 
-            this.Build.Location = new System.Drawing.Point(364, 637);
-            this.Build.Name = "Build";
-            this.Build.Size = new System.Drawing.Size(109, 23);
-            this.Build.TabIndex = 10;
-            this.Build.Text = "Создать деталь";
-            this.Build.UseVisualStyleBackColor = true;
-            this.Build.Click += new System.EventHandler(this.Build_Click);
+            this.BuildButton.Location = new System.Drawing.Point(364, 637);
+            this.BuildButton.Name = "BuildButton";
+            this.BuildButton.Size = new System.Drawing.Size(109, 23);
+            this.BuildButton.TabIndex = 10;
+            this.BuildButton.Text = "Создать деталь";
+            this.BuildButton.UseVisualStyleBackColor = true;
+            this.BuildButton.Click += new System.EventHandler(this.Build_Click);
             // 
             // pictureBox1
             // 
@@ -241,7 +241,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.Build);
+            this.Controls.Add(this.BuildButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -256,7 +256,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Build;
+        private System.Windows.Forms.Button BuildButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;

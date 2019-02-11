@@ -31,6 +31,9 @@ namespace BesedinCoursework
             fileName[shortName] = null;
             partDocument[shortName].DisplayName = longName;
         }
+        /// <summary>
+        /// To assemble parts.
+        /// </summary>
         public InventorAPI(AssemblyComponentDefinition assemblyComponentDefinition) =>
             this.assemblyComponentDefinition = assemblyComponentDefinition;
         // Accessing dictionaries
@@ -61,13 +64,13 @@ namespace BesedinCoursework
             sketch.SketchCircles.AddByCenterRadius(point, radius);
         // 3D
         /// <param name="direction">
-        /// 0: Positive;
-        /// 1: Negative;
-        /// 2: Symmetric;
+        /// 0-Positive;
+        /// 1-Negative;
+        /// 2-Symmetric;
         /// </param>
         /// <param name="operation">
-        /// 0: Join;
-        /// 1: Cut;
+        /// 0-Join;
+        /// 1-Cut;
         /// </param>
         public ExtrudeFeature extrude(Profile profile, double distance, int direction, int operation)
         {
@@ -97,8 +100,8 @@ namespace BesedinCoursework
             return getCompDef().Features.ExtrudeFeatures.AddByDistanceExtent(profile, distance, extentDirection, extentOperation, profile);
         }
         /// <param name="operation">
-        /// 0: Join;
-        /// 1: Cut;
+        /// 0-Join;
+        /// 1-Cut;
         /// </param>
         public RevolveFeature revolve(Profile profile, object axis, int operation)
         {

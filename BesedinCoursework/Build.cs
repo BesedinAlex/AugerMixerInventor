@@ -4,7 +4,7 @@ namespace BesedinCoursework
 {
     /// <summary>
     /// Contains functions to make parts and assemblies.
-    /// Can be extended for future use.
+    /// Can be extended in future.
     /// </summary>
     public class Build
     {
@@ -258,11 +258,119 @@ namespace BesedinCoursework
         }
         public static void mainBody(InventorAPI api, string formName)
         {
-
+            Parameters oParameters = api.getCompDef().Parameters;
+            PlanarSketch[] sketch = new PlanarSketch[2];
+            Profile[] profile = new Profile[2];
+            SketchPoint[] point = new SketchPoint[8];
+            SketchLine[] line = new SketchLine[7];
+            SketchCircle[] circle = new SketchCircle[1];
+            // Создание конической основы
+            sketch[0] = api.sketch(api.getCompDef().WorkPlanes[3]);
+            point[0] = api.point(sketch[0], 0.1, 0.1);
+            point[1] = api.point(sketch[0], 0.1, 0.2);
+            line[0] = api.line(sketch[0], point[0], point[1]);
+            point[2] = api.point(sketch[0], MainBody.D / 2 - MainBody.B, MainBody.H);
+            point[3] = api.point(sketch[0], MainBody.D / 2, MainBody.H);
+            point[4] = api.point(sketch[0], MainBody.D / 2, MainBody.H - MainBody.T);
+            point[5] = api.point(sketch[0], MainBody.D / 2 - MainBody.B + 1, MainBody.H - MainBody.T);
+            point[6] = api.point(sketch[0], MainBody.Ds + 1, 0);
+            point[7] = api.point(sketch[0], MainBody.Ds, 0);
+            line[1] = api.line(sketch[0], point[2], point[3]);
+            line[2] = api.line(sketch[0], point[3], point[4]);
+            line[3] = api.line(sketch[0], point[4], point[5]);
+            line[4] = api.line(sketch[0], point[5], point[6]);
+            line[5] = api.line(sketch[0], point[6], point[7]);
+            line[6] = api.line(sketch[0], point[7], point[2]);
+            Point2d SketchSize = api.getTransGeom().CreatePoint2d(-1, -1); // Место для выноса размеров
+            sketch[0].GeometricConstraints.AddVertical((SketchEntity)line[0]);
+            sketch[0].GeometricConstraints.AddHorizontal((SketchEntity)line[1]);
+            sketch[0].GeometricConstraints.AddVertical((SketchEntity)line[2]);
+            sketch[0].GeometricConstraints.AddHorizontal((SketchEntity)line[3]);
+            sketch[0].GeometricConstraints.AddHorizontal((SketchEntity)line[5]);
+            sketch[0].GeometricConstraints.AddHorizontalAlign(point[0], point[7]);
+            sketch[0].GeometricConstraints.AddParallel((SketchEntity)line[4], (SketchEntity)line[6]);
+            sketch[0].DimensionConstraints.AddTwoPointDistance(point[0], point[7], DimensionOrientationEnum.kHorizontalDim, SketchSize); // Ds
+            sketch[0].DimensionConstraints.AddTwoPointDistance(point[0], point[3], DimensionOrientationEnum.kVerticalDim, SketchSize); // H
+            sketch[0].DimensionConstraints.AddTwoPointDistance(point[0], point[3], DimensionOrientationEnum.kHorizontalDim, SketchSize); // D
+            sketch[0].DimensionConstraints.AddTwoPointDistance(point[2], point[3], DimensionOrientationEnum.kHorizontalDim, SketchSize); // B
+            sketch[0].DimensionConstraints.AddOffset(line[4], (SketchEntity)line[6], SketchSize, false); // A
+            sketch[0].DimensionConstraints.AddTwoPointDistance(point[3], point[4], DimensionOrientationEnum.kVerticalDim, SketchSize); // T
+            oParameters["d0"].Expression = MainBody.Ds / 2 + " mm";
+            oParameters["d1"].Expression = MainBody.H + " mm";
+            oParameters["d2"].Expression = MainBody.D / 2 + " mm";
+            oParameters["d3"].Expression = MainBody.B + " mm";
+            oParameters["d4"].Expression = MainBody.A + " mm";
+            oParameters["d5"].Expression = MainBody.T + " mm";
+            point[0].MoveTo(api.getTransGeom().CreatePoint2d(0, 0)); // Выравнивание осевой линии центра
+            sketch[0].DimensionConstraints.AddTwoLineAngle(line[6], line[0], api.getTransGeom().CreatePoint2d(10, 40), true);
+            MainBody.Degree = oParameters["d6"]._Value * (180 / System.Math.PI);
+            profile[0] = api.profile(sketch[0]);
+            RevolveFeature revolve = api.revolve(profile[0], line[0], 0);
+            // Отверстия
+            sketch[1] = api.sketch(api.getCompDef().WorkPlanes[2]);
+            point[0] = api.point(sketch[1], 0, MainBody.Rb / 10);
+            circle[0] = api.circle(sketch[1], point[0], MainBody.Rm / 10 / 2);
+            profile[1] = api.profile(sketch[1]);
+            ExtrudeFeature extrude = api.extrude(profile[1], MainBody.H / 10, 0, 1);
+            ObjectCollection objCollection2 = api.objectCollection();
+            objCollection2.Add(extrude);
+            CircularPatternFeature CircularPatternFeature2 = api.getCompDef().Features.CircularPatternFeatures.Add(objCollection2, api.getCompDef().WorkAxes[2], true, 3, "360 degree", true, PatternComputeTypeEnum.kIdenticalCompute);
+            System.Windows.Forms.MessageBox.Show(formName + " завершено.", formName);
         }
         public static void screw(InventorAPI api, string formName)
         {
-
+            PlanarSketch[] sketch = new PlanarSketch[4];
+            Profile[] profile = new Profile[4];
+            SketchPoint[] point = new SketchPoint[4];
+            SketchLine[] line = new SketchLine[4];
+            RevolveFeature[] revolve = new RevolveFeature[4];
+            // Создание цилиндра
+            sketch[0] = api.sketch(api.getCompDef().WorkPlanes[3]);
+            point[0] = api.point(sketch[0], 0, 0);
+            point[1] = api.point(sketch[0], 0, Screw.H / 10);
+            point[2] = api.point(sketch[0], Screw.D1 / 10 / 2, Screw.H / 10);
+            point[3] = api.point(sketch[0], Screw.D1 / 10 / 2, 0);
+            line[0] = api.line(sketch[0], point[0], point[1]);
+            line[1] = api.line(sketch[0], point[1], point[2]);
+            line[2] = api.line(sketch[0], point[2], point[3]);
+            line[3] = api.line(sketch[0], point[3], point[0]);
+            profile[0] = api.profile(sketch[0]);
+            revolve[0] = api.revolve(profile[0], line[0], 0);
+            // Создание пружины
+            sketch[1] = api.sketch(api.getCompDef().WorkPlanes[3]);
+            point[0] = api.point(sketch[1], Screw.D1 / 10 / 2, 0);
+            point[1] = api.point(sketch[1], Screw.D / 10 / 2, 0);
+            point[3] = api.point(sketch[1], Screw.D1 / 10 / 2, Screw.T / 10);
+            line[0] = api.line(sketch[1], point[0], point[1]);
+            line[1] = api.line(sketch[1], point[1], point[3]);
+            line[2] = api.line(sketch[1], point[3], point[0]);
+            profile[1] = api.profile(sketch[1]);
+            CoilFeature coil = api.getCompDef().Features.CoilFeatures.AddByPitchAndHeight(profile[1], api.getCompDef().WorkAxes[2], Screw.H1 / 10, Screw.H2 / 10, PartFeatureOperationEnum.kJoinOperation, false, false, 0, false, 0, 0, true);
+            // Верхняя граница пружины
+            sketch[2] = api.sketch(api.getCompDef().WorkPlanes[3]);
+            point[0] = api.point(sketch[2], 0, Screw.H2 / 10);
+            point[1] = api.point(sketch[2], 0, Screw.H2 / 10 + Screw.T / 10);
+            point[2] = api.point(sketch[2], Screw.D / 10 / 2, Screw.H2 / 10 + Screw.T / 10);
+            point[3] = api.point(sketch[2], Screw.D / 10 / 2, Screw.H2 / 10);
+            line[0] = api.line(sketch[2], point[0], point[1]);
+            line[1] = api.line(sketch[2], point[1], point[2]);
+            line[2] = api.line(sketch[2], point[2], point[3]);
+            line[3] = api.line(sketch[2], point[3], point[0]);
+            profile[2] = api.profile(sketch[2]);
+            revolve[2] = api.revolve(profile[2], line[0], 0);
+            // Крепление
+            sketch[3] = api.sketch(api.getCompDef().WorkPlanes[3]);
+            point[0] = api.point(sketch[3], 0, Screw.H3 / 10);
+            point[1] = api.point(sketch[3], 0, Screw.H3 / 10 + Screw.A / 10);
+            point[2] = api.point(sketch[3], Screw.D / 10 / 2, Screw.H3 / 10 + Screw.A / 10);
+            point[3] = api.point(sketch[3], Screw.D / 10 / 2, Screw.H3 / 10);
+            line[0] = api.line(sketch[3], point[0], point[1]);
+            line[1] = api.line(sketch[3], point[1], point[2]);
+            line[2] = api.line(sketch[3], point[2], point[3]);
+            line[3] = api.line(sketch[3], point[3], point[0]);
+            profile[3] = api.profile(sketch[3]);
+            revolve[3] = api.revolve(profile[3], line[0], 0);
+            System.Windows.Forms.MessageBox.Show(formName + " завершено.", formName);
         }
         public static void top(InventorAPI api, string formName)
         {
