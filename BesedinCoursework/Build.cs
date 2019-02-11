@@ -4,6 +4,66 @@ namespace BesedinCoursework
 {
     public class Build
     {
+        public static void assembly(Application app, System.Windows.Forms.OpenFileDialog openFileDialog, string formName)
+        {
+            System.Collections.Generic.Dictionary<string, string> fileName = new System.Collections.Generic.Dictionary<string, string>();
+            System.Collections.Generic.Dictionary<string, PartDocument> partDocument = new System.Collections.Generic.Dictionary<string, PartDocument>();
+            string[] partIndex = { "КК", "К", "Шнек", "КВ", "БО" };
+            string[] partName = { "Конический корпус", "Крышка", "Шнек", "Корпус для выгрузки материалов", "Боковые опоры" };
+            for (int i = 0; i < partIndex.Length; i++)
+            {
+                openFileDialog.Filter = "Inventor Part Document|*.ipt";
+                openFileDialog.Title = "Открыть файл " + partName[i] + ".";
+                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    if (!string.IsNullOrWhiteSpace(openFileDialog.FileName))
+                    {
+                        partDocument[partIndex[i]] = (PartDocument)app.Documents.Open(openFileDialog.FileName, true);
+                        partDocument[partIndex[i]].DisplayName = partName[i];
+                        fileName[partIndex[i]] = openFileDialog.FileName;
+                    }
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Сборка была прервана по причине того, \nчто не все детали были открыты приложением.", formName);
+                    return;
+                }
+            }
+            // Инициализация сборки
+            AssemblyDocument assemblyDocument = (AssemblyDocument)app.Documents.Add(DocumentTypeEnum.kAssemblyDocumentObject, app.FileManager.GetTemplateFile(DocumentTypeEnum.kAssemblyDocumentObject));
+            AssemblyComponentDefinition assemblyComponentDefinition = assemblyDocument.ComponentDefinition;
+            InventorAPI api = new InventorAPI(assemblyComponentDefinition);
+            assemblyDocument.DisplayName = "Планетарно-шнековый смеситель";
+            for (int i = 0; i < partIndex.Length; i++)
+                assemblyDocument.ComponentDefinition.Occurrences.Add(fileName[partIndex[i]], app.TransientGeometry.CreateMatrix());
+            // Присоединение крышки
+            api.Surface(1, 1, 2, 19);
+            api.Surface(1, 2, 2, 20);
+            try
+            {
+                api.Surface(1, 9, 2, 114);
+            }
+            catch
+            {
+                api.Surface(1, 9, 2, 113);
+            }
+            // Присоединение шнека
+            api.Axis(1, 3, 3, 3);
+            api.Plane(1, 3, 3, 3);
+            api.PlaneAngle(1, 1, 3, 1, System.Convert.ToString(MainBody.Degree));
+            // Присоединение корпуса для выгрузки материалов
+            api.Axis(1, 2, 4, 2);
+            api.Surface(1, 9, 4, 28, -MainBody.H / 10, false);
+            api.Plane(1, 3, 4, 3);
+            // Присоединение боковых опор
+            api.Plane(1, 3, 5, 3);
+            api.Plane(1, 2, 5, 2, System.Convert.ToString(MainBody.H - MainBody.H / 4));
+            api.Plane(1, 1, 5, 1, System.Convert.ToString((MainBody.H - (MainBody.H - MainBody.H / 4)) * 1.32));
+            ObjectCollection oB = app.TransientObjects.CreateObjectCollection();
+            oB.Add(assemblyComponentDefinition.Occurrences[5]);
+            assemblyComponentDefinition.OccurrencePatterns.AddCircularPattern(oB, assemblyComponentDefinition.WorkAxes[2], true, "90 degree", 4);
+            System.Windows.Forms.MessageBox.Show("Сборка планетарно-шнекового смесителя завершена.", formName);
+        }
         public static void bottom(InventorAPI api, string formName)
         {
             Parameters oParameters = api.getCompDef().Parameters;
@@ -191,6 +251,18 @@ namespace BesedinCoursework
             StandardThreadInfo stInfo1 = ThreadFeatures1.CreateStandardThreadInfo(false, true, "ISO Metric profile", "M" + Hold.d6 + "x1.5", "6g");
             ThreadFeatures1.Add(extrude[3].SideFaces[1], extrude[3].SideFaces[1].Edges[2], (ThreadInfo)stInfo1, false, true, 0);
             System.Windows.Forms.MessageBox.Show(formName + " завершено.", formName);
+        }
+        public static void mainBody(InventorAPI api, string formName)
+        {
+
+        }
+        public static void screw(InventorAPI api, string formName)
+        {
+
+        }
+        public static void top(InventorAPI api, string formName)
+        {
+
         }
     }
 }

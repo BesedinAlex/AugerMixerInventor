@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Assembly));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Build = new System.Windows.Forms.Button();
+            this.BuildButton = new System.Windows.Forms.Button();
             this.Hold = new System.Windows.Forms.Button();
             this.Bottom = new System.Windows.Forms.Button();
             this.Screw = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.Build);
+            this.groupBox1.Controls.Add(this.BuildButton);
             this.groupBox1.Controls.Add(this.Hold);
             this.groupBox1.Controls.Add(this.Bottom);
             this.groupBox1.Controls.Add(this.Screw);
@@ -60,15 +60,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Меню";
             // 
-            // Build
+            // BuildButton
             // 
-            this.Build.Image = global::BesedinCoursework.Properties.Resources.iam_icon;
-            this.Build.Location = new System.Drawing.Point(515, 19);
-            this.Build.Name = "Build";
-            this.Build.Size = new System.Drawing.Size(79, 78);
-            this.Build.TabIndex = 6;
-            this.Build.UseVisualStyleBackColor = true;
-            this.Build.Click += new System.EventHandler(this.Build_Click);
+            this.BuildButton.Image = global::BesedinCoursework.Properties.Resources.iam_icon;
+            this.BuildButton.Location = new System.Drawing.Point(515, 19);
+            this.BuildButton.Name = "BuildButton";
+            this.BuildButton.Size = new System.Drawing.Size(79, 78);
+            this.BuildButton.TabIndex = 6;
+            this.BuildButton.UseVisualStyleBackColor = true;
+            this.BuildButton.Click += new System.EventHandler(this.Build_Click);
             // 
             // Hold
             // 
@@ -147,7 +147,7 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // MainWindow
+            // Assembly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,7 +158,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "MainWindow";
+            this.Name = "Assembly";
             this.Text = "Планетарно-шнековой смеситель в Inventor";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -172,7 +172,7 @@
         private System.Windows.Forms.Button InventorControl;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button Build;
+        private System.Windows.Forms.Button BuildButton;
         private System.Windows.Forms.Button Hold;
         private System.Windows.Forms.Button Bottom;
         private System.Windows.Forms.Button Screw;

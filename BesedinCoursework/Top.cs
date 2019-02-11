@@ -223,130 +223,49 @@ namespace BesedinCoursework
                 MessageBox.Show("Деталь ещё не создана, либо программа не видит созданную деталь.", "Построение крышки");
             }
         }
-        private void error_check(System.Windows.Forms.TextBox textBox, double Number) // Проверка ошибки в textBox
-        {
-            try
-            {
-                if (Convert.ToDouble(textBox.Text) <= 0)
-                {
-                    MessageBox.Show("Введите значение больше нуля!", "Построение корпуса для выгрузки материалов");
-                    textBox.Text = Convert.ToString(Number);
-                }
-            }
-            catch
-            {
-                textBox.Text = Convert.ToString(Number);
-            }
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox1, 1530);
-            D = Convert.ToDouble(textBox1.Text);
-        }
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox2, 1340);
-            D1 = Convert.ToDouble(textBox2.Text);
-        }
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox3, 200);
-            H = Convert.ToDouble(textBox3.Text);
-        }
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox4, 40);
-            T = Convert.ToDouble(textBox4.Text);
-        }
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox5, 40);
-            A = Convert.ToDouble(textBox5.Text);
-        }
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox6, 8);
-            ACount = Convert.ToDouble(textBox6.Text);
-        }
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox7, 730);
-            MBRb = Convert.ToDouble(textBox7.Text);
-        }
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox8, 24);
-            MBRm = Convert.ToDouble(textBox8.Text);
-        }
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox9, 580);
-            RR = Convert.ToDouble(textBox9.Text);
-        }
-        private void textBox10_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox10, 305);
-            HR = Convert.ToDouble(textBox10.Text);
-        }
-        private void textBox11_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox11, 180);
-            DR = Convert.ToDouble(textBox11.Text);
-        }
-        private void textBox12_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox12, 30);
-            hR = Convert.ToDouble(textBox12.Text);
-        }
-        private void textBox13_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox13, 120);
-            dR = Convert.ToDouble(textBox13.Text);
-        }
-        private void textBox14_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox14, 100);
-            TR = Convert.ToDouble(textBox14.Text);
-        }
-        private void textBox15_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox15, 75);
-            OR = Convert.ToDouble(textBox15.Text);
-        }
-        private void textBox16_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox16, 18);
-            oR = Convert.ToDouble(textBox16.Text);
-        }
-        private void textBox17_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox17, 540);
-            R1R = Convert.ToDouble(textBox17.Text);
-        }
-        private void textBox18_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox18, 380);
-            D1R = Convert.ToDouble(textBox18.Text);
-        }
-        private void textBox19_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox19, 260);
-            d1R = Convert.ToDouble(textBox19.Text);
-        }
-        private void textBox20_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox20, 240);
-            T1R = Convert.ToDouble(textBox20.Text);
-        }
-        private void textBox21_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox21, 168);
-            O1R = Convert.ToDouble(textBox21.Text);
-        }
-        private void textBox22_TextChanged(object sender, EventArgs e)
-        {
-            error_check(textBox22, 22);
-            o1R = Convert.ToDouble(textBox22.Text);
-        }
+        private void textBox1_TextChanged(object sender, EventArgs e) =>
+            D = Auto.checkTextBoxChange(textBox1, 1530);
+        private void textBox2_TextChanged(object sender, EventArgs e) =>
+            D1 = Auto.checkTextBoxChange(textBox2, 1340);
+        private void textBox3_TextChanged(object sender, EventArgs e) =>
+            H = Auto.checkTextBoxChange(textBox3, 200);
+        private void textBox4_TextChanged(object sender, EventArgs e) =>
+            T = Auto.checkTextBoxChange(textBox4, 40);
+        private void textBox5_TextChanged(object sender, EventArgs e) =>
+            A = Auto.checkTextBoxChange(textBox5, 40);
+        private void textBox6_TextChanged(object sender, EventArgs e) =>
+            ACount = Auto.checkTextBoxChange(textBox6, 8);
+        private void textBox7_TextChanged(object sender, EventArgs e) =>
+            MBRb = Auto.checkTextBoxChange(textBox7, 730);
+        private void textBox8_TextChanged(object sender, EventArgs e) =>
+            MBRm = Auto.checkTextBoxChange(textBox8, 24);
+        private void textBox9_TextChanged(object sender, EventArgs e) =>
+            RR = Auto.checkTextBoxChange(textBox9, 580);
+        private void textBox10_TextChanged(object sender, EventArgs e) =>
+            HR = Auto.checkTextBoxChange(textBox10, 305);
+        private void textBox11_TextChanged(object sender, EventArgs e) =>
+            DR = Auto.checkTextBoxChange(textBox11, 180);
+        private void textBox12_TextChanged(object sender, EventArgs e) =>
+            hR = Auto.checkTextBoxChange(textBox12, 30);
+        private void textBox13_TextChanged(object sender, EventArgs e) =>
+            dR = Auto.checkTextBoxChange(textBox13, 120);
+        private void textBox14_TextChanged(object sender, EventArgs e) =>
+            TR = Auto.checkTextBoxChange(textBox14, 100);
+        private void textBox15_TextChanged(object sender, EventArgs e) =>
+            OR = Auto.checkTextBoxChange(textBox15, 75);
+        private void textBox16_TextChanged(object sender, EventArgs e) =>
+            oR = Auto.checkTextBoxChange(textBox16, 18);
+        private void textBox17_TextChanged(object sender, EventArgs e) =>
+            R1R = Auto.checkTextBoxChange(textBox17, 540);
+        private void textBox18_TextChanged(object sender, EventArgs e) =>
+            D1R = Auto.checkTextBoxChange(textBox18, 380);
+        private void textBox19_TextChanged(object sender, EventArgs e) =>
+            d1R = Auto.checkTextBoxChange(textBox19, 260);
+        private void textBox20_TextChanged(object sender, EventArgs e) =>
+            T1R = Auto.checkTextBoxChange(textBox20, 240);
+        private void textBox21_TextChanged(object sender, EventArgs e) =>
+            O1R = Auto.checkTextBoxChange(textBox21, 168);
+        private void textBox22_TextChanged(object sender, EventArgs e) =>
+            o1R = Auto.checkTextBoxChange(textBox22, 22);
     }
 }
