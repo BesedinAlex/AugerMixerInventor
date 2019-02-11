@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Top));
-            this.Build = new System.Windows.Forms.Button();
+            this.BuildButton = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -95,15 +95,15 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Build
+            // BuildButton
             // 
-            this.Build.Location = new System.Drawing.Point(619, 524);
-            this.Build.Name = "Build";
-            this.Build.Size = new System.Drawing.Size(109, 23);
-            this.Build.TabIndex = 9;
-            this.Build.Text = "Создать деталь";
-            this.Build.UseVisualStyleBackColor = true;
-            this.Build.Click += new System.EventHandler(this.Build_Click);
+            this.BuildButton.Location = new System.Drawing.Point(619, 524);
+            this.BuildButton.Name = "BuildButton";
+            this.BuildButton.Size = new System.Drawing.Size(109, 23);
+            this.BuildButton.TabIndex = 9;
+            this.BuildButton.Text = "Создать деталь";
+            this.BuildButton.UseVisualStyleBackColor = true;
+            this.BuildButton.Click += new System.EventHandler(this.Build_Click);
             // 
             // Save
             // 
@@ -656,7 +656,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Save);
-            this.Controls.Add(this.Build);
+            this.Controls.Add(this.BuildButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -676,7 +676,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Build;
+        private System.Windows.Forms.Button BuildButton;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Panel panel1;

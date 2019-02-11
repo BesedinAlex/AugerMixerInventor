@@ -4,7 +4,7 @@ using Inventor;
 namespace BesedinCoursework
 {
     /// <summary>
-    /// Helps to work with Inventor API.
+    /// Contains frequently used API to work with Inventor faster.
     /// </summary>
     public class InventorAPI
     {

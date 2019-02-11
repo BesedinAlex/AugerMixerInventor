@@ -2,6 +2,10 @@
 
 namespace BesedinCoursework
 {
+    /// <summary>
+    /// Contains functions to make parts and assemblies.
+    /// Can be extended for future use.
+    /// </summary>
     public class Build
     {
         public static void assembly(Application app, System.Windows.Forms.OpenFileDialog openFileDialog, string formName)
@@ -186,7 +190,7 @@ namespace BesedinCoursework
             line[8] = api.line(sketch[10], point[8], point[9]);
             line[9] = api.line(sketch[10], point[9], point[0]);
             profile[10] = api.profile(sketch[10]);
-            RevolveFeature revolvefeature10 = api.revolve(profile[10], line[9], 0);
+            RevolveFeature revolvefeature = api.revolve(profile[10], line[9], 0);
             System.Windows.Forms.MessageBox.Show(formName + " завершено.", formName);
         }
         public static void hold(InventorAPI api, string formName)
@@ -210,7 +214,7 @@ namespace BesedinCoursework
             profile[0] = api.profile(sketch[0]);
             extrude[0] = api.extrude(profile[0], Hold.a1 / 10, 2, 0);
             // Боковые крепления
-            WorkPlane oWorkPlane1 = api.getCompDef().WorkPlanes.AddByPlaneAndOffset(api.getCompDef().WorkPlanes[3], Hold.a / 2 / 10, false);
+            WorkPlane oWorkPlane1 = api.getCompDef().WorkPlanes.AddByPlaneAndOffset(api.getCompDef().WorkPlanes[3], Hold.a / 2 / 10);
             oWorkPlane1.Visible = false;
             sketch[1] = api.sketch(oWorkPlane1);
             point[0] = api.point(sketch[1], 0, 0);
@@ -262,7 +266,129 @@ namespace BesedinCoursework
         }
         public static void top(InventorAPI api, string formName)
         {
-
+            Parameters oParameters = api.getCompDef().Parameters;
+            PlanarSketch[] sketch = new PlanarSketch[12];
+            Profile[] profile = new Profile[12];
+            SketchPoint[] point = new SketchPoint[8];
+            SketchLine[] line = new SketchLine[8];
+            SketchCircle[] circle = new SketchCircle[1];
+            ExtrudeFeature[] extrude = new ExtrudeFeature[12];
+            // Основа корпуса
+            sketch[0] = api.sketch(api.getCompDef().WorkPlanes[3]);
+            point[0] = api.point(sketch[0], 0, Top.H / 10 - Top.T / 10);
+            point[1] = api.point(sketch[0], 0, Top.H / 10);
+            point[2] = api.point(sketch[0], Top.D1 / 10 / 2, Top.H / 10);
+            point[3] = api.point(sketch[0], Top.D1 / 10 / 2, Top.T / 10);
+            point[4] = api.point(sketch[0], Top.D / 10 / 2, Top.T / 10);
+            point[5] = api.point(sketch[0], Top.D / 10 / 2, 0);
+            point[6] = api.point(sketch[0], Top.D1 / 10 / 2 - Top.T / 10, 0);
+            point[7] = api.point(sketch[0], Top.D1 / 10 / 2 - Top.T / 10, Top.H / 10 - Top.T / 10);
+            line[0] = api.line(sketch[0], point[0], point[1]);
+            line[1] = api.line(sketch[0], point[1], point[2]);
+            line[2] = api.line(sketch[0], point[2], point[3]);
+            line[3] = api.line(sketch[0], point[3], point[4]);
+            line[4] = api.line(sketch[0], point[4], point[5]);
+            line[5] = api.line(sketch[0], point[5], point[6]);
+            line[6] = api.line(sketch[0], point[6], point[7]);
+            line[7] = api.line(sketch[0], point[7], point[0]);
+            profile[0] = api.profile(sketch[0]);
+            RevolveFeature revolveFeature = api.revolve(profile[0], line[0], 0);
+            // Ребра жесткости
+            sketch[1] = api.sketch(api.getCompDef().WorkPlanes[3]);
+            point[0] = api.point(sketch[1], Top.D1 / 10 / 2 - Top.T / 10, Top.H / 10);
+            point[1] = api.point(sketch[1], point[0].Geometry.X + Top.T / 10 * 2, Top.H / 10);
+            point[2] = api.point(sketch[1], Top.D / 10 / 2, Top.T / 10 * 2);
+            point[3] = api.point(sketch[1], Top.D / 10 / 2, Top.T / 10);
+            point[4] = api.point(sketch[1], point[0].Geometry.X, Top.T / 10);
+            line[0] = api.line(sketch[1], point[0], point[1]);
+            line[0] = api.line(sketch[1], point[1], point[2]);
+            line[0] = api.line(sketch[1], point[2], point[3]);
+            line[0] = api.line(sketch[1], point[3], point[4]);
+            line[0] = api.line(sketch[1], point[4], point[0]);
+            profile[1] = api.profile(sketch[1]);
+            extrude[1] = api.extrude(profile[1], Top.A / 10, 2, 0);
+            ObjectCollection objCollection1 = api.objectCollection();
+            objCollection1.Add(extrude[1]);
+            CircularPatternFeature CircularPatternFeature2 = api.getCompDef().Features.CircularPatternFeatures.Add(objCollection1, api.getCompDef().WorkAxes[2], true, Top.ACount, "360 degree", true, PatternComputeTypeEnum.kIdenticalCompute);
+            // Резервные проходы (2 штуки)
+            WorkPlane oWorkPlane2 = api.getCompDef().WorkPlanes.AddByPlaneAndOffset(api.getCompDef().WorkPlanes[2], Top.HR / 10);
+            oWorkPlane2.Visible = false;
+            sketch[2] = api.sketch(oWorkPlane2);
+            circle[0] = api.circle(sketch[2], api.point(sketch[2], Top.RR / 10, 0), Top.DR / 10 / 2);
+            profile[2] = api.profile(sketch[2]);
+            extrude[2] = api.extrude(profile[2], Top.hR / 10, 2, 0);
+            sketch[3] = api.sketch(oWorkPlane2);
+            circle[0] = api.circle(sketch[3], api.point(sketch[3], Top.RR / 10, 0), Top.dR / 10 / 2);
+            profile[3] = api.profile(sketch[3]);
+            extrude[3] = api.extrude(profile[3], Top.HR / 10 - Top.H / 10, 1, 0);
+            sketch[4] = api.sketch(oWorkPlane2);
+            circle[0] = api.circle(sketch[4], api.point(sketch[4], Top.RR / 10, 0), Top.TR / 10 / 2);
+            profile[4] = api.profile(sketch[4]);
+            extrude[4] = api.extrude(profile[4], 10000, 2, 1);
+            PlanarSketch oSketch5 = api.getCompDef().Sketches.Add(oWorkPlane2);
+            sketch[5] = api.sketch(oWorkPlane2);
+            circle[0] = api.circle(sketch[5], api.point(sketch[5], Top.RR / 10, Top.OR / 10), Top.oR / 10 / 2);
+            profile[5] = api.profile(sketch[5]);
+            extrude[5] = api.extrude(profile[5], Top.hR / 10, 2, 1);
+            WorkAxis Axis5 = api.getCompDef().WorkAxes.AddByRevolvedFace(extrude[4].Faces[1]);
+            Axis5.Visible = false;
+            ObjectCollection objCollection5 = api.objectCollection();
+            objCollection5.Add(extrude[5]);
+            CircularPatternFeature CircularPatternFeature5 = api.getCompDef().Features.CircularPatternFeatures.Add(objCollection5, Axis5, true, 8, "360 degree", true, PatternComputeTypeEnum.kIdenticalCompute);
+            ObjectCollection objCollection6 = api.objectCollection();
+            for (int i = 2; i < 6; i++)
+                objCollection6.Add(extrude[i]);
+            objCollection6.Add(CircularPatternFeature5);
+            CircularPatternFeature CircularPatternFeature6 = api.getCompDef().Features.CircularPatternFeatures.Add(objCollection6, api.getCompDef().WorkAxes[2], true, 2, "150 degree", true, PatternComputeTypeEnum.kIdenticalCompute);
+            // Отверстия под болты
+            sketch[7] = api.sketch(api.getCompDef().WorkPlanes[2]);
+            point[0] = api.point(sketch[7], 0, 0);
+            point[1] = api.point(sketch[7], 0, Top.MBRb / 10);
+            point[2] = api.point(sketch[7], Top.MBRb / 10, 0);
+            line[0] = api.line(sketch[7], point[1], point[0]);
+            line[1] = api.line(sketch[7], point[0], point[2]);
+            sketch[7].DimensionConstraints.AddTwoLineAngle(line[0], line[1], api.getTransGeom().CreatePoint2d(1, 1));
+            sketch[7].GeometricConstraints.AddHorizontal((SketchEntity)line[1]);
+            circle[0] = api.circle(sketch[7], point[1], Top.MBRm / 10 / 2);
+            oParameters["d21"].Expression = "82.5 degree";
+            sketch[7].GeometricConstraints.AddCoincident((SketchEntity)circle[0].CenterSketchPoint, (SketchEntity)point[1]);
+            profile[7] = api.profile(sketch[7]);
+            extrude[7] = api.extrude(profile[7], 10000, 2, 1);
+            ObjectCollection objCollection7 = api.objectCollection();
+            objCollection7.Add(extrude[7]);
+            CircularPatternFeature CircularPatternFeature7 = api.getCompDef().Features.CircularPatternFeatures.Add(objCollection7, api.getCompDef().WorkAxes[2], true, 3, "360 degree", true, PatternComputeTypeEnum.kIdenticalCompute);
+            // Загрузка сыпучих материалов
+            sketch[8] = api.sketch(oWorkPlane2);
+            point[0] = api.point(sketch[8], 0, 0);
+            point[1] = api.point(sketch[8], 0, -Top.R1R / 10);
+            point[2] = api.point(sketch[8], -Top.R1R / 10, 0);
+            line[0] = api.line(sketch[8], point[0], point[1]);
+            line[1] = api.line(sketch[8], point[0], point[2]);
+            sketch[8].DimensionConstraints.AddTwoLineAngle(line[0], line[1], api.getTransGeom().CreatePoint2d(1, 1));
+            sketch[8].GeometricConstraints.AddVertical((SketchEntity)line[0]);
+            circle[0] = api.circle(sketch[8], api.point(sketch[8], -Top.R1R / 10, -1), Top.D1R / 10 / 2);
+            oParameters["d27"].Expression = "75 degree";
+            sketch[8].GeometricConstraints.AddCoincident((SketchEntity)circle[0].CenterSketchPoint, (SketchEntity)point[2]);
+            profile[8] = api.profile(sketch[8]);
+            extrude[8] = api.extrude(profile[8], Top.hR / 10, 2, 0);
+            sketch[9] = api.sketch(extrude[8].Faces[1]);
+            circle[0] = api.circle(sketch[9], api.point(sketch[9], 0, 0), Top.d1R / 10 / 2);
+            profile[9] = api.profile(sketch[9]);
+            extrude[9] = api.extrude(profile[9], Top.HR / 10 - Top.H / 10, 0, 0);
+            sketch[10] = api.sketch(extrude[8].Faces[1]);
+            circle[0] = api.circle(sketch[10], api.point(sketch[10], 0, 0), Top.T1R / 10 / 2);
+            profile[10] = api.profile(sketch[10]);
+            extrude[10] = api.extrude(profile[10], 10000, 2, 1);
+            sketch[11] = api.sketch(extrude[8].Faces[1]);
+            circle[0] = api.circle(sketch[11], api.point(sketch[11], 0, Top.O1R / 10), Top.o1R / 10 / 2);
+            profile[11] = api.profile(sketch[11]);
+            extrude[11] = api.extrude(profile[11], Top.hR / 10, 1, 1);
+            WorkAxis Axis11 = api.getCompDef().WorkAxes.AddByRevolvedFace(extrude[10].Faces[1]);
+            Axis11.Visible = false;
+            ObjectCollection objCollection11 = api.objectCollection();
+            objCollection11.Add(extrude[11]);
+            CircularPatternFeature CircularPatternFeature11 = api.getCompDef().Features.CircularPatternFeatures.Add(objCollection11, Axis11, true, 12, "360 degree", true, PatternComputeTypeEnum.kIdenticalCompute);
+            System.Windows.Forms.MessageBox.Show(formName + " завершено.", formName);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 namespace BesedinCoursework
 {
     /// <summary>
-    /// Some functions to clear controller code.
+    /// Contains functions that are used in all forms.
     /// </summary>
     public class Auto
     {
