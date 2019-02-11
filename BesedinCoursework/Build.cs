@@ -327,9 +327,9 @@ namespace BesedinCoursework
             // Создание цилиндра
             sketch[0] = api.sketch(api.getCompDef().WorkPlanes[3]);
             point[0] = api.point(sketch[0], 0, 0);
-            point[1] = api.point(sketch[0], 0, Screw.H / 10);
-            point[2] = api.point(sketch[0], Screw.D1 / 10 / 2, Screw.H / 10);
-            point[3] = api.point(sketch[0], Screw.D1 / 10 / 2, 0);
+            point[1] = api.point(sketch[0], 0, Auger.H / 10);
+            point[2] = api.point(sketch[0], Auger.D1 / 10 / 2, Auger.H / 10);
+            point[3] = api.point(sketch[0], Auger.D1 / 10 / 2, 0);
             line[0] = api.line(sketch[0], point[0], point[1]);
             line[1] = api.line(sketch[0], point[1], point[2]);
             line[2] = api.line(sketch[0], point[2], point[3]);
@@ -338,20 +338,20 @@ namespace BesedinCoursework
             revolve[0] = api.revolve(profile[0], line[0], 0);
             // Создание пружины
             sketch[1] = api.sketch(api.getCompDef().WorkPlanes[3]);
-            point[0] = api.point(sketch[1], Screw.D1 / 10 / 2, 0);
-            point[1] = api.point(sketch[1], Screw.D / 10 / 2, 0);
-            point[3] = api.point(sketch[1], Screw.D1 / 10 / 2, Screw.T / 10);
+            point[0] = api.point(sketch[1], Auger.D1 / 10 / 2, 0);
+            point[1] = api.point(sketch[1], Auger.D / 10 / 2, 0);
+            point[3] = api.point(sketch[1], Auger.D1 / 10 / 2, Auger.T / 10);
             line[0] = api.line(sketch[1], point[0], point[1]);
             line[1] = api.line(sketch[1], point[1], point[3]);
             line[2] = api.line(sketch[1], point[3], point[0]);
             profile[1] = api.profile(sketch[1]);
-            CoilFeature coil = api.getCompDef().Features.CoilFeatures.AddByPitchAndHeight(profile[1], api.getCompDef().WorkAxes[2], Screw.H1 / 10, Screw.H2 / 10, PartFeatureOperationEnum.kJoinOperation, false, false, 0, false, 0, 0, true);
+            CoilFeature coil = api.getCompDef().Features.CoilFeatures.AddByPitchAndHeight(profile[1], api.getCompDef().WorkAxes[2], Auger.H1 / 10, Auger.H2 / 10, PartFeatureOperationEnum.kJoinOperation, false, false, 0, false, 0, 0, true);
             // Верхняя граница пружины
             sketch[2] = api.sketch(api.getCompDef().WorkPlanes[3]);
-            point[0] = api.point(sketch[2], 0, Screw.H2 / 10);
-            point[1] = api.point(sketch[2], 0, Screw.H2 / 10 + Screw.T / 10);
-            point[2] = api.point(sketch[2], Screw.D / 10 / 2, Screw.H2 / 10 + Screw.T / 10);
-            point[3] = api.point(sketch[2], Screw.D / 10 / 2, Screw.H2 / 10);
+            point[0] = api.point(sketch[2], 0, Auger.H2 / 10);
+            point[1] = api.point(sketch[2], 0, Auger.H2 / 10 + Auger.T / 10);
+            point[2] = api.point(sketch[2], Auger.D / 10 / 2, Auger.H2 / 10 + Auger.T / 10);
+            point[3] = api.point(sketch[2], Auger.D / 10 / 2, Auger.H2 / 10);
             line[0] = api.line(sketch[2], point[0], point[1]);
             line[1] = api.line(sketch[2], point[1], point[2]);
             line[2] = api.line(sketch[2], point[2], point[3]);
@@ -360,10 +360,10 @@ namespace BesedinCoursework
             revolve[2] = api.revolve(profile[2], line[0], 0);
             // Крепление
             sketch[3] = api.sketch(api.getCompDef().WorkPlanes[3]);
-            point[0] = api.point(sketch[3], 0, Screw.H3 / 10);
-            point[1] = api.point(sketch[3], 0, Screw.H3 / 10 + Screw.A / 10);
-            point[2] = api.point(sketch[3], Screw.D / 10 / 2, Screw.H3 / 10 + Screw.A / 10);
-            point[3] = api.point(sketch[3], Screw.D / 10 / 2, Screw.H3 / 10);
+            point[0] = api.point(sketch[3], 0, Auger.H3 / 10);
+            point[1] = api.point(sketch[3], 0, Auger.H3 / 10 + Auger.A / 10);
+            point[2] = api.point(sketch[3], Auger.D / 10 / 2, Auger.H3 / 10 + Auger.A / 10);
+            point[3] = api.point(sketch[3], Auger.D / 10 / 2, Auger.H3 / 10);
             line[0] = api.line(sketch[3], point[0], point[1]);
             line[1] = api.line(sketch[3], point[1], point[2]);
             line[2] = api.line(sketch[3], point[2], point[3]);

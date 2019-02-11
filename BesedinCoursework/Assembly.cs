@@ -26,7 +26,7 @@ namespace BesedinCoursework
         }
         private void Screw_Click(object sender, EventArgs e)
         {
-            Screw W = new Screw();
+            Auger W = new Auger();
             W.ShowDialog();
         }
         private void Bottom_Click(object sender, EventArgs e)

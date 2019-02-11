@@ -3,12 +3,12 @@ using System.Windows.Forms;
 
 namespace BesedinCoursework
 {
-    public partial class Screw : Form
+    public partial class Auger : Form
     {
         private InventorAPI api;
         private Inventor.Application app = null;
         public static double H = 1700, D = 220, D1 = 100, H1 = 120, H2 = 1300, T = 25, H3 = 1500, A = 40;
-        public Screw()
+        public Auger()
         {
             InitializeComponent();
             textBox1.Text = Convert.ToString(D);
