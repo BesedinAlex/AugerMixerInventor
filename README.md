@@ -6,4 +6,4 @@ It was a task for "Programming in CAD" discipline. That's why namespace is named
 
 To compile it you might need to connect project to Inventor Object Library.
 
-Inventor Object Library: "C:\Program Files\Autodesk\Inventor 2019\Bin\Public Assemblies\Autodesk.Inventor.Interop.dll"
+Inventor Object Library: "<disk>:\Program Files\Autodesk\Inventor <year>\Bin\Public Assemblies\Autodesk.Inventor.Interop.dll"
