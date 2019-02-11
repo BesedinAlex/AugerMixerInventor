@@ -127,7 +127,70 @@ namespace BesedinCoursework
             line[9] = api.line(sketch[10], point[9], point[0]);
             profile[10] = api.profile(sketch[10]);
             RevolveFeature revolvefeature10 = api.revolve(profile[10], line[9], 0);
-            System.Windows.Forms.MessageBox.Show("Создание корпуса для выгрузки материалов завершено.", formName);
+            System.Windows.Forms.MessageBox.Show(formName + " завершено.", formName);
+        }
+        public static void hold(InventorAPI api, string formName)
+        {
+            PlanarSketch[] sketch = new PlanarSketch[4];
+            Profile[] profile = new Profile[4];
+            SketchPoint[] point = new SketchPoint[5];
+            SketchLine[] line = new SketchLine[5];
+            SketchCircle[] circle = new SketchCircle[1];
+            ExtrudeFeature[] extrude = new ExtrudeFeature[4];
+            // Нижняя основа
+            sketch[0] = api.sketch(api.getCompDef().WorkPlanes[3]);
+            point[0] = api.point(sketch[0], 0, 0);
+            point[1] = api.point(sketch[0], Hold.b / 10, 0);
+            point[2] = api.point(sketch[0], Hold.b / 10, -Hold.S1 / 10);
+            point[3] = api.point(sketch[0], 0, -Hold.S1 / 10);
+            line[0] = api.line(sketch[0], point[0], point[1]);
+            line[1] = api.line(sketch[0], point[1], point[2]);
+            line[2] = api.line(sketch[0], point[2], point[3]);
+            line[3] = api.line(sketch[0], point[3], point[0]);
+            profile[0] = api.profile(sketch[0]);
+            extrude[0] = api.extrude(profile[0], Hold.a1 / 10, 2, 0);
+            // Боковые крепления
+            WorkPlane oWorkPlane1 = api.getCompDef().WorkPlanes.AddByPlaneAndOffset(api.getCompDef().WorkPlanes[3], Hold.a / 2 / 10, false);
+            oWorkPlane1.Visible = false;
+            sketch[1] = api.sketch(oWorkPlane1);
+            point[0] = api.point(sketch[1], 0, 0);
+            point[1] = api.point(sketch[1], (Hold.b * System.Math.Sin(MainBody.Degree / 180 * System.Math.PI)) / 10, Hold.h * System.Math.Cos(MainBody.Degree / 180 * System.Math.PI) / 10 - Hold.S1 / 10);
+            point[2] = api.point(sketch[1], point[1].Geometry.X + Hold.K / 10, point[1].Geometry.Y);
+            point[3] = api.point(sketch[1], Hold.b / 10, Hold.K1 / 10);
+            point[4] = api.point(sketch[1], Hold.b / 10, 0);
+            line[0] = api.line(sketch[1], point[0], point[1]);
+            line[1] = api.line(sketch[1], point[1], point[2]);
+            line[2] = api.line(sketch[1], point[2], point[3]);
+            line[3] = api.line(sketch[1], point[3], point[4]);
+            line[4] = api.line(sketch[1], point[4], point[0]);
+            profile[1] = api.profile(sketch[1]);
+            extrude[1] = api.extrude(profile[1], Hold.S1 / 10, 0, 0);
+            ObjectCollection objCollection1 = api.objectCollection();
+            objCollection1.Add(extrude[1]);
+            api.getCompDef().Features.MirrorFeatures.AddByDefinition(api.getCompDef().Features.MirrorFeatures.CreateDefinition(objCollection1, api.getCompDef().WorkPlanes[3], PatternComputeTypeEnum.kIdenticalCompute));
+            // Болтовое отверстие
+            sketch[2] = api.sketch(api.getCompDef().WorkPlanes[3]);
+            point[0] = api.point(sketch[2], Hold.b / 10 - Hold.b1 / 10, -Hold.S1 / 10);
+            point[1] = api.point(sketch[2], point[0].Geometry.X + Hold.b2 / 10, point[0].Geometry.Y);
+            point[2] = api.point(sketch[2], point[1].Geometry.X, point[0].Geometry.Y - Hold.h1 / 10);
+            point[3] = api.point(sketch[2], point[0].Geometry.X, point[2].Geometry.Y);
+            line[0] = api.line(sketch[2], point[0], point[1]);
+            line[1] = api.line(sketch[2], point[1], point[2]);
+            line[2] = api.line(sketch[2], point[2], point[3]);
+            line[3] = api.line(sketch[2], point[3], point[0]);
+            profile[2] = api.profile(sketch[2]);
+            extrude[2] = api.extrude(profile[2], Hold.a2 / 10, 2, 0);
+            sketch[3] = api.sketch(api.getCompDef().WorkPlanes[2]);
+            circle[0] = api.circle(sketch[3], api.point(sketch[3], -(Hold.b / 10 - Hold.c / 10), 0), Hold.d6 / 2 / 10);
+            profile[3] = api.profile(sketch[3]);
+            extrude[3] = api.extrude(profile[3], Hold.h, 2, 1);
+            // Резьба
+            EdgeCollection EdgeCollection1 = api.edgeCollection();
+            EdgeCollection1.Add(extrude[3].SideFaces[1].Edges[1]);
+            ThreadFeatures ThreadFeatures1 = api.threadFeatures();
+            StandardThreadInfo stInfo1 = ThreadFeatures1.CreateStandardThreadInfo(false, true, "ISO Metric profile", "M" + Hold.d6 + "x1.5", "6g");
+            ThreadFeatures1.Add(extrude[3].SideFaces[1], extrude[3].SideFaces[1].Edges[2], (ThreadInfo)stInfo1, false, true, 0);
+            System.Windows.Forms.MessageBox.Show(formName + " завершено.", formName);
         }
     }
 }

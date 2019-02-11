@@ -55,7 +55,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.Save = new System.Windows.Forms.Button();
-            this.Build = new System.Windows.Forms.Button();
+            this.BuildButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -298,15 +298,15 @@
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
-            // Build
+            // BuildButton
             // 
-            this.Build.Location = new System.Drawing.Point(482, 451);
-            this.Build.Name = "Build";
-            this.Build.Size = new System.Drawing.Size(109, 23);
-            this.Build.TabIndex = 27;
-            this.Build.Text = "Создать деталь";
-            this.Build.UseVisualStyleBackColor = true;
-            this.Build.Click += new System.EventHandler(this.Build_Click);
+            this.BuildButton.Location = new System.Drawing.Point(482, 451);
+            this.BuildButton.Name = "BuildButton";
+            this.BuildButton.Size = new System.Drawing.Size(109, 23);
+            this.BuildButton.TabIndex = 27;
+            this.BuildButton.Text = "Создать деталь";
+            this.BuildButton.UseVisualStyleBackColor = true;
+            this.BuildButton.Click += new System.EventHandler(this.Build_Click);
             // 
             // textBox12
             // 
@@ -334,7 +334,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox12);
             this.Controls.Add(this.Save);
-            this.Controls.Add(this.Build);
+            this.Controls.Add(this.BuildButton);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label12);
@@ -400,7 +400,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Button Save;
-        private System.Windows.Forms.Button Build;
+        private System.Windows.Forms.Button BuildButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label13;

@@ -122,8 +122,12 @@ namespace BesedinCoursework
             }
             return getCompDef().Features.RevolveFeatures.AddFull(profile, axis, extentOperation);
         }
-        //
+        // Additional features
         public ObjectCollection objectCollection() =>
             app.TransientObjects.CreateObjectCollection();
+        public EdgeCollection edgeCollection() =>
+            app.TransientObjects.CreateEdgeCollection();
+        public ThreadFeatures threadFeatures() =>
+            getCompDef().Features.ThreadFeatures;
     }
 }
