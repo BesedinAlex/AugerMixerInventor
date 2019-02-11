@@ -6,7 +6,7 @@ namespace BesedinCoursework
 {
     public partial class Bottom : Form
     {
-        public static InventorAPI api;
+        private InventorAPI api;
         private Inventor.Application app = null;
         public static double D1 = 440, H1 = 30, D2 = 350, H2 = 50, DR = 395, oR = 11; // Основание
         public static double L1 = 480, L2 = 440, T = 15, HB = 250, D3 = 250, H3 = 90; // "Коробка"
@@ -48,10 +48,10 @@ namespace BesedinCoursework
             if (app == null)
                 return;
             api = new InventorAPI(app, "КВ", "Корпус для выгрузки материалов");
-            
+            Build.bottom(api, Text);
         }
         private void Save_Click(object sender, EventArgs e) =>
-            Auto.saveFunction(app, saveFileDialog1, this, api);
+            Auto.savePartFunction(app, saveFileDialog1, this, api);
         private void textBox2_TextChanged(object sender, EventArgs e) =>
             D1 = Auto.checkTextBoxChange(textBox2, 440);
         private void textBox3_TextChanged(object sender, EventArgs e)

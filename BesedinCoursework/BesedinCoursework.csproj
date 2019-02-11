@@ -57,6 +57,7 @@
     <Compile Include="Bottom.Designer.cs">
       <DependentUpon>Bottom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Build.cs" />
     <Compile Include="InventorAPI.cs" />
     <Compile Include="Hold.cs">
       <SubType>Form</SubType>

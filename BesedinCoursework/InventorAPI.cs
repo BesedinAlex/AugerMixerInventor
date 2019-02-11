@@ -14,7 +14,7 @@ namespace BesedinCoursework
         private static Dictionary<string, PartDocument> partDocument = new Dictionary<string, PartDocument>();
         private static Dictionary<string, PartComponentDefinition> partComponentDefinition = new Dictionary<string, PartComponentDefinition>();
         private static Dictionary<string, TransientGeometry> transientGeometry = new Dictionary<string, TransientGeometry>();
-        private AssemblyComponentDefinition oAssCompDef;
+        private AssemblyComponentDefinition assemblyComponentDefinition;
         /// <summary>
         /// To build parts.
         /// </summary>
@@ -56,16 +56,74 @@ namespace BesedinCoursework
             partComponentDefinition[shortName];
         public TransientGeometry getTransGeom() =>
             transientGeometry[shortName];
-        // Sketch
+        // 2D
         public PlanarSketch sketch(object plane, bool useFaceEdges = false) =>
             getCompDef().Sketches.Add(plane, useFaceEdges);
         public Profile profile(PlanarSketch sketch) =>
             sketch.Profiles.AddForSolid();
-        public SketchPoint point(PlanarSketch sketch, double x, double y) =>
-            sketch.SketchPoints.Add(getTransGeom().CreatePoint2d(x, y), false);
+        public SketchPoint point(PlanarSketch sketch, double x, double y, bool holeCenter = false) =>
+            sketch.SketchPoints.Add(getTransGeom().CreatePoint2d(x, y), holeCenter);
         public SketchLine line(PlanarSketch sketch, SketchPoint point1, SketchPoint point2) =>
             sketch.SketchLines.AddByTwoPoints(point1, point2);
         public SketchCircle circle(PlanarSketch sketch, SketchPoint point, double radius) =>
             sketch.SketchCircles.AddByCenterRadius(point, radius);
+        // 3D
+        /// <param name="direction">
+        /// 0: Positive;
+        /// 1: Negative;
+        /// 2: Symmetric;
+        /// </param>
+        /// <param name="operation">
+        /// 0: Join;
+        /// 1: Cut;
+        /// </param>
+        public ExtrudeFeature extrude(Profile profile, double distance, int direction, int operation)
+        {
+            PartFeatureExtentDirectionEnum extentDirection;
+            switch (direction)
+            {
+                case 0:
+                    extentDirection = PartFeatureExtentDirectionEnum.kPositiveExtentDirection;
+                    break;
+                case 1:
+                    extentDirection = PartFeatureExtentDirectionEnum.kNegativeExtentDirection;
+                    break;
+                default:
+                    extentDirection = PartFeatureExtentDirectionEnum.kSymmetricExtentDirection;
+                    break;
+            }
+            PartFeatureOperationEnum extentOperation;
+            switch (operation)
+            {
+                case 0:
+                    extentOperation = PartFeatureOperationEnum.kJoinOperation;
+                    break;
+                default:
+                    extentOperation = PartFeatureOperationEnum.kCutOperation;
+                    break;
+            }
+            return getCompDef().Features.ExtrudeFeatures.AddByDistanceExtent(profile, distance, extentDirection, extentOperation, profile);
+        }
+        /// <param name="operation">
+        /// 0: Join;
+        /// 1: Cut;
+        /// </param>
+        public RevolveFeature revolve(Profile profile, object axis, int operation)
+        {
+            PartFeatureOperationEnum extentOperation;
+            switch (operation)
+            {
+                case 0:
+                    extentOperation = PartFeatureOperationEnum.kJoinOperation;
+                    break;
+                default:
+                    extentOperation = PartFeatureOperationEnum.kCutOperation;
+                    break;
+            }
+            return getCompDef().Features.RevolveFeatures.AddFull(profile, axis, extentOperation);
+        }
+        //
+        public ObjectCollection objectCollection() =>
+            app.TransientObjects.CreateObjectCollection();
     }
 }
