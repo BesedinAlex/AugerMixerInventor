@@ -6,7 +6,7 @@ namespace BesedinCoursework
     /// Contains functions to make parts and assemblies.
     /// Can be extended in future.
     /// </summary>
-    public class Build
+    public static class Build
     {
         public static void assembly(Application app, System.Windows.Forms.OpenFileDialog openFileDialog, string formName)
         {
