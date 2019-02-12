@@ -6,7 +6,7 @@ namespace BesedinCoursework
     /// <summary>
     /// Contains functions that are used in all forms.
     /// </summary>
-    public class Auto
+    public static class Auto
     {
         /// <summary>
         /// Returns value entered to textBox, if it's double.
