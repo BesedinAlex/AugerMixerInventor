@@ -1,4 +1,4 @@
-﻿namespace BesedinCoursework
+﻿namespace AugerMixer
 {
     partial class Assembly
     {
@@ -62,7 +62,7 @@
             // 
             // BuildButton
             // 
-            this.BuildButton.Image = global::BesedinCoursework.Properties.Resources.iam_icon;
+            this.BuildButton.Image = global::AugerMixer.Properties.Resources.iam_icon;
             this.BuildButton.Location = new System.Drawing.Point(515, 19);
             this.BuildButton.Name = "BuildButton";
             this.BuildButton.Size = new System.Drawing.Size(79, 78);
@@ -124,7 +124,7 @@
             // 
             this.InventorControl.AutoSize = true;
             this.InventorControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.InventorControl.Image = global::BesedinCoursework.Properties.Resources.Inventor_Icon;
+            this.InventorControl.Image = global::AugerMixer.Properties.Resources.Inventor_Icon;
             this.InventorControl.Location = new System.Drawing.Point(6, 19);
             this.InventorControl.Name = "InventorControl";
             this.InventorControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -139,7 +139,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BesedinCoursework.Properties.Resources.Main_Drawing;
+            this.pictureBox1.Image = global::AugerMixer.Properties.Resources.Main_Drawing;
             this.pictureBox1.Location = new System.Drawing.Point(12, 121);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(601, 430);

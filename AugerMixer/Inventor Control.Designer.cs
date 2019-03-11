@@ -1,4 +1,4 @@
-﻿namespace BesedinCoursework
+﻿namespace AugerMixer
 {
     partial class InventorControl
     {

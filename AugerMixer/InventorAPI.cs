@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Inventor;
 
-namespace BesedinCoursework
+namespace AugerMixer
 {
     /// <summary>
     /// Contains frequently used API to work with Inventor faster.

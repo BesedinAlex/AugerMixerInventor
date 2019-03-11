@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BesedinCoursework
+namespace AugerMixer
 {
     public partial class Auger : Form
     {
@@ -22,29 +22,29 @@ namespace BesedinCoursework
         }
         private void Build_Click(object sender, EventArgs e)
         {
-            app = Auto.appActivity(app);
+            app = Auto.AppActivity(app);
             if (app == null)
                 return;
             api = new InventorAPI(app, "Шнек", "Шнек");
-            Build.screw(api, Text);
+            Build.Screw(api, Text);
         }
         private void Save_Click(object sender, EventArgs e) =>
-            Auto.savePartFunction(app, saveFileDialog1, this, api);
+            Auto.SavePart(app, saveFileDialog1, this, api);
         private void textBox1_TextChanged(object sender, EventArgs e) =>
-            D = Auto.checkTextBoxChange(textBox1, 220);
+            D = Auto.CheckTextBoxChange(textBox1, 220);
         private void textBox2_TextChanged(object sender, EventArgs e) =>
-            D1 = Auto.checkTextBoxChange(textBox2, 100);
+            D1 = Auto.CheckTextBoxChange(textBox2, 100);
         private void textBox3_TextChanged(object sender, EventArgs e) =>
-            H = Auto.checkTextBoxChange(textBox3, 1600);
+            H = Auto.CheckTextBoxChange(textBox3, 1600);
         private void textBox4_TextChanged(object sender, EventArgs e) =>
-            H1 = Auto.checkTextBoxChange(textBox4, 120);
+            H1 = Auto.CheckTextBoxChange(textBox4, 120);
         private void textBox5_TextChanged(object sender, EventArgs e) =>
-            H2 = Auto.checkTextBoxChange(textBox5, 1300);
+            H2 = Auto.CheckTextBoxChange(textBox5, 1300);
         private void textBox6_TextChanged(object sender, EventArgs e) =>
-            T = Auto.checkTextBoxChange(textBox6, 25);
+            T = Auto.CheckTextBoxChange(textBox6, 25);
         private void textBox7_TextChanged(object sender, EventArgs e) =>
-            H3 = Auto.checkTextBoxChange(textBox7, 1500);
+            H3 = Auto.CheckTextBoxChange(textBox7, 1500);
         private void textBox8_TextChanged(object sender, EventArgs e) =>
-            A = Auto.checkTextBoxChange(textBox8, 40);
+            A = Auto.CheckTextBoxChange(textBox8, 40);
     }
 }

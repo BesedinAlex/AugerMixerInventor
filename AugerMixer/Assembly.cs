@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BesedinCoursework
+namespace AugerMixer
 {
     public partial class Assembly : Form
     {
@@ -42,10 +42,10 @@ namespace BesedinCoursework
         // Сборка
         private void Build_Click(object sender, EventArgs e)
         {
-            app = Auto.appActivity(app);
+            app = Auto.AppActivity(app);
             if (app == null)
                 return;
-            Build.assembly(app, openFileDialog1, Text);
+            Build.Assembly(app, openFileDialog1, Text);
         }
     }
 }

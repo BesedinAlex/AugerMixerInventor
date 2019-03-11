@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BesedinCoursework
+namespace AugerMixer
 {
     /// <summary>
     /// Contains functions that are used in all forms.
@@ -17,7 +17,7 @@ namespace BesedinCoursework
         /// <param name="defaultDouble">
         /// Returns it, if you make mistake.
         /// </param>
-        public static double checkTextBoxChange(TextBox textBox, double defaultDouble)
+        public static double CheckTextBoxChange(TextBox textBox, double defaultDouble)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace BesedinCoursework
         /// <returns>
         /// Returns connection to Inventor. If there's no connection, returns null.
         /// </returns>
-        public static Inventor.Application appActivity(Inventor.Application app)
+        public static Inventor.Application AppActivity(Inventor.Application app)
         {
             try
             {
@@ -55,9 +55,9 @@ namespace BesedinCoursework
         /// <param name="app">
         /// Links Inventor.
         /// </param>
-        public static void savePartFunction(Inventor.Application app, SaveFileDialog saveFileDialog, Form form, InventorAPI api)
+        public static void SavePart(Inventor.Application app, SaveFileDialog saveFileDialog, Form form, InventorAPI api)
         {
-            app = appActivity(app);
+            app = AppActivity(app);
             if (app == null)
                 return;
             try

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BesedinCoursework
+namespace AugerMixer
 {
     public partial class Hold : Form
     {
@@ -16,14 +16,14 @@ namespace BesedinCoursework
         }
         private void Build_Click(object sender, EventArgs e)
         {
-            app = Auto.appActivity(app);
+            app = Auto.AppActivity(app);
             if (app == null)
                 return;
             api = new InventorAPI(app, "БО", "Боковые опоры");
-            Build.hold(api, Text);
+            Build.Hold(api, Text);
         }
         private void Save_Click(object sender, EventArgs e) =>
-            Auto.savePartFunction(app, saveFileDialog1, this, api);
+            Auto.SavePart(app, saveFileDialog1, this, api);
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (comboBox1.SelectedIndex)

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BesedinCoursework
+namespace AugerMixer
 {
     public partial class InventorControl : Form
     {

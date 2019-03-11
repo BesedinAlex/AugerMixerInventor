@@ -1,4 +1,4 @@
-﻿namespace BesedinCoursework
+﻿namespace AugerMixer
 {
     partial class Top
     {
@@ -129,7 +129,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::BesedinCoursework.Properties.Resources.Top04;
+            this.pictureBox5.Image = global::AugerMixer.Properties.Resources.Top04;
             this.pictureBox5.Location = new System.Drawing.Point(3, 716);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(460, 311);
@@ -139,7 +139,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::BesedinCoursework.Properties.Resources.Top03;
+            this.pictureBox3.Image = global::AugerMixer.Properties.Resources.Top03;
             this.pictureBox3.Location = new System.Drawing.Point(3, 579);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(460, 131);
@@ -149,7 +149,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::BesedinCoursework.Properties.Resources.Top02;
+            this.pictureBox2.Image = global::AugerMixer.Properties.Resources.Top02;
             this.pictureBox2.Location = new System.Drawing.Point(3, 233);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(460, 340);
@@ -159,7 +159,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BesedinCoursework.Properties.Resources.Top01;
+            this.pictureBox1.Image = global::AugerMixer.Properties.Resources.Top01;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(460, 224);

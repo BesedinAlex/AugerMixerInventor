@@ -1,4 +1,4 @@
-﻿namespace BesedinCoursework
+﻿namespace AugerMixer
 {
     partial class Bottom
     {
@@ -133,7 +133,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::BesedinCoursework.Properties.Resources.Bottom03;
+            this.pictureBox3.Image = global::AugerMixer.Properties.Resources.Bottom03;
             this.pictureBox3.Location = new System.Drawing.Point(3, 752);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(458, 318);
@@ -143,7 +143,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::BesedinCoursework.Properties.Resources.Bottom02;
+            this.pictureBox2.Image = global::AugerMixer.Properties.Resources.Bottom02;
             this.pictureBox2.Location = new System.Drawing.Point(3, 374);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(458, 372);
@@ -153,7 +153,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BesedinCoursework.Properties.Resources.Bottom01;
+            this.pictureBox1.Image = global::AugerMixer.Properties.Resources.Bottom01;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(458, 368);

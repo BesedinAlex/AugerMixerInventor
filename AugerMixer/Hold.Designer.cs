@@ -1,4 +1,4 @@
-﻿namespace BesedinCoursework
+﻿namespace AugerMixer
 {
     partial class Hold
     {
@@ -73,7 +73,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BesedinCoursework.Properties.Resources.Hold;
+            this.pictureBox1.Image = global::AugerMixer.Properties.Resources.Hold;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(448, 490);
