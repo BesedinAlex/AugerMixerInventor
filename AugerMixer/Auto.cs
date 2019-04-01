@@ -63,13 +63,13 @@ namespace AugerMixer
             try
             {
                 saveFileDialog.Filter = "Inventor Part Document|*.ipt";
-                saveFileDialog.Title = api.getLongName();
-                saveFileDialog.FileName = api.getPartDoc().DisplayName;
+                saveFileDialog.Title = api.GetLongName();
+                saveFileDialog.FileName = api.GetPartDoc().DisplayName;
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     if (!string.IsNullOrWhiteSpace(saveFileDialog.FileName))
                     {
-                        api.getPartDoc().SaveAs(saveFileDialog.FileName, false);
-                        api.setFileName(saveFileDialog.FileName);
+                        api.GetPartDoc().SaveAs(saveFileDialog.FileName, false);
+                        api.SetFileName(saveFileDialog.FileName);
                     }
                 form.Close();
             }

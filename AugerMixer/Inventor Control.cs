@@ -26,7 +26,7 @@ namespace AugerMixer
             inventorVersions.Items.AddRange(new object[] { "2015", "2016", "2017", "2018", "2019" });
             inventorVersions.Text = "2019";
         }
-        private void launchTry(char drive)
+        private void LaunchTry(char drive)
         {
             System.Diagnostics.Process.Start(drive + "://Program Files/Autodesk/Inventor " + inventorVersions.Text.ToString() + "/Bin/Inventor.exe");
             Close();
@@ -35,13 +35,13 @@ namespace AugerMixer
         {
             try
             { 
-                launchTry('C');
+                LaunchTry('C');
             }
             catch
             {
                 try
                 {
-                    launchTry('D');
+                    LaunchTry('D');
                 }
                 catch
                 {

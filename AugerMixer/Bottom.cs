@@ -51,67 +51,67 @@ namespace AugerMixer
         }
         private void Save_Click(object sender, EventArgs e) =>
             Auto.SavePart(app, saveFileDialog1, this, api);
-        private void textBox2_TextChanged(object sender, EventArgs e) =>
+        private void TextBox2_TextChanged(object sender, EventArgs e) =>
             D1 = Auto.CheckTextBoxChange(textBox2, 440);
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void TextBox3_TextChanged(object sender, EventArgs e)
         {
             H1 = Auto.CheckTextBoxChange(textBox3, 30);
             textBox1.Text = Convert.ToString(H1 + H2 + HB + H3);
         }
-        private void textBox4_TextChanged(object sender, EventArgs e) =>
+        private void TextBox4_TextChanged(object sender, EventArgs e) =>
             DR = Auto.CheckTextBoxChange(textBox4, 395);
-        private void textBox5_TextChanged(object sender, EventArgs e) =>
+        private void TextBox5_TextChanged(object sender, EventArgs e) =>
             oR = Auto.CheckTextBoxChange(textBox5, 11);
-        private void textBox6_TextChanged(object sender, EventArgs e) =>
+        private void TextBox6_TextChanged(object sender, EventArgs e) =>
             D2 = Auto.CheckTextBoxChange(textBox6, 350);
-        private void textBox7_TextChanged(object sender, EventArgs e)
+        private void TextBox7_TextChanged(object sender, EventArgs e)
         {
             H2 = Auto.CheckTextBoxChange(textBox7, 50);
             textBox1.Text = Convert.ToString(H1 + H2 + HB + H3);
         }
-        private void textBox8_TextChanged(object sender, EventArgs e) =>
+        private void TextBox8_TextChanged(object sender, EventArgs e) =>
             L1 = Auto.CheckTextBoxChange(textBox8, 480);
-        private void textBox9_TextChanged(object sender, EventArgs e) =>
+        private void TextBox9_TextChanged(object sender, EventArgs e) =>
             L2 = Auto.CheckTextBoxChange(textBox9, 440);
-        private void textBox10_TextChanged(object sender, EventArgs e)
+        private void TextBox10_TextChanged(object sender, EventArgs e)
         {
             HB = Auto.CheckTextBoxChange(textBox10, 250);
             textBox1.Text = Convert.ToString(H1 + H2 + HB + H3);
         }
-        private void textBox11_TextChanged(object sender, EventArgs e) =>
+        private void TextBox11_TextChanged(object sender, EventArgs e) =>
             T = Auto.CheckTextBoxChange(textBox11, 15);
-        private void textBox12_TextChanged(object sender, EventArgs e) =>
+        private void TextBox12_TextChanged(object sender, EventArgs e) =>
             D3 = Auto.CheckTextBoxChange(textBox12, 250);
-        private void textBox13_TextChanged(object sender, EventArgs e)
+        private void TextBox13_TextChanged(object sender, EventArgs e)
         {
             H3 = Auto.CheckTextBoxChange(textBox13, 90);
             textBox1.Text = Convert.ToString(H1 + H2 + HB + H3);
         }
-        private void textBox14_TextChanged(object sender, EventArgs e) =>
+        private void TextBox14_TextChanged(object sender, EventArgs e) =>
             H4 = Auto.CheckTextBoxChange(textBox14, 400);
-        private void textBox15_TextChanged(object sender, EventArgs e) =>
+        private void TextBox15_TextChanged(object sender, EventArgs e) =>
             D4D = Auto.CheckTextBoxChange(textBox15, 30);
-        private void textBox16_TextChanged(object sender, EventArgs e) =>
+        private void TextBox16_TextChanged(object sender, EventArgs e) =>
             D4d = Auto.CheckTextBoxChange(textBox16, 20);
-        private void textBox17_TextChanged(object sender, EventArgs e) =>
+        private void TextBox17_TextChanged(object sender, EventArgs e) =>
             A = Auto.CheckTextBoxChange(textBox17, 40);
-        private void textBox18_TextChanged(object sender, EventArgs e) =>
+        private void TextBox18_TextChanged(object sender, EventArgs e) =>
             H5 = Auto.CheckTextBoxChange(textBox18, 205);
-        private void textBox19_TextChanged(object sender, EventArgs e) =>
+        private void TextBox19_TextChanged(object sender, EventArgs e) =>
             D51 = Auto.CheckTextBoxChange(textBox19, 200);
-        private void textBox20_TextChanged(object sender, EventArgs e) =>
+        private void TextBox20_TextChanged(object sender, EventArgs e) =>
             L51 = Auto.CheckTextBoxChange(textBox20, 20);
-        private void textBox21_TextChanged(object sender, EventArgs e) =>
+        private void TextBox21_TextChanged(object sender, EventArgs e) =>
             D52 = Auto.CheckTextBoxChange(textBox21, 245);
-        private void textBox22_TextChanged(object sender, EventArgs e) =>
+        private void TextBox22_TextChanged(object sender, EventArgs e) =>
             L52 = Auto.CheckTextBoxChange(textBox22, 45);
-        private void textBox23_TextChanged(object sender, EventArgs e) =>
+        private void TextBox23_TextChanged(object sender, EventArgs e) =>
             D53 = Auto.CheckTextBoxChange(textBox23, 100);
-        private void textBox24_TextChanged(object sender, EventArgs e) =>
+        private void TextBox24_TextChanged(object sender, EventArgs e) =>
             L53 = Auto.CheckTextBoxChange(textBox24, 22.5);
-        private void textBox25_TextChanged(object sender, EventArgs e) =>
+        private void TextBox25_TextChanged(object sender, EventArgs e) =>
             D54 = Auto.CheckTextBoxChange(textBox25, 122.5);
-        private void textBox26_TextChanged(object sender, EventArgs e) =>
+        private void TextBox26_TextChanged(object sender, EventArgs e) =>
             L54 = Auto.CheckTextBoxChange(textBox26, 35);
     }
 }

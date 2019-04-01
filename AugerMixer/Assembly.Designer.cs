@@ -174,9 +174,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button BuildButton;
         private System.Windows.Forms.Button Hold;
-        private System.Windows.Forms.Button Bottom;
+        private new System.Windows.Forms.Button Bottom;
         private System.Windows.Forms.Button Screw;
-        private System.Windows.Forms.Button Top;
+        private new System.Windows.Forms.Button Top;
         private System.Windows.Forms.Button MainBody;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;

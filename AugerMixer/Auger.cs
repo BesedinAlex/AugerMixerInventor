@@ -30,21 +30,21 @@ namespace AugerMixer
         }
         private void Save_Click(object sender, EventArgs e) =>
             Auto.SavePart(app, saveFileDialog1, this, api);
-        private void textBox1_TextChanged(object sender, EventArgs e) =>
+        private void TextBox1_TextChanged(object sender, EventArgs e) =>
             D = Auto.CheckTextBoxChange(textBox1, 220);
-        private void textBox2_TextChanged(object sender, EventArgs e) =>
+        private void TextBox2_TextChanged(object sender, EventArgs e) =>
             D1 = Auto.CheckTextBoxChange(textBox2, 100);
-        private void textBox3_TextChanged(object sender, EventArgs e) =>
+        private void TextBox3_TextChanged(object sender, EventArgs e) =>
             H = Auto.CheckTextBoxChange(textBox3, 1600);
-        private void textBox4_TextChanged(object sender, EventArgs e) =>
+        private void TextBox4_TextChanged(object sender, EventArgs e) =>
             H1 = Auto.CheckTextBoxChange(textBox4, 120);
-        private void textBox5_TextChanged(object sender, EventArgs e) =>
+        private void TextBox5_TextChanged(object sender, EventArgs e) =>
             H2 = Auto.CheckTextBoxChange(textBox5, 1300);
-        private void textBox6_TextChanged(object sender, EventArgs e) =>
+        private void TextBox6_TextChanged(object sender, EventArgs e) =>
             T = Auto.CheckTextBoxChange(textBox6, 25);
-        private void textBox7_TextChanged(object sender, EventArgs e) =>
+        private void TextBox7_TextChanged(object sender, EventArgs e) =>
             H3 = Auto.CheckTextBoxChange(textBox7, 1500);
-        private void textBox8_TextChanged(object sender, EventArgs e) =>
+        private void TextBox8_TextChanged(object sender, EventArgs e) =>
             A = Auto.CheckTextBoxChange(textBox8, 40);
     }
 }

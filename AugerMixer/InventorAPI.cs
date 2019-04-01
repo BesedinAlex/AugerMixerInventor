@@ -8,7 +8,7 @@ namespace AugerMixer
     /// </summary>
     public class InventorAPI
     {
-        private string shortName;
+        private readonly string shortName;
         private Application app = null;
         private static Dictionary<string, string> fileName = new Dictionary<string, string>();
         private static Dictionary<string, PartDocument> partDocument = new Dictionary<string, PartDocument>();
@@ -37,30 +37,30 @@ namespace AugerMixer
         public InventorAPI(AssemblyComponentDefinition assemblyComponentDefinition) =>
             this.assemblyComponentDefinition = assemblyComponentDefinition;
         // Accessing dictionaries
-        public string getShortName() =>
+        public string GetShortName() =>
             shortName;
-        public string getLongName() =>
+        public string GetLongName() =>
             partDocument[shortName].DisplayName;
-        public void setFileName(string setName) =>
+        public void SetFileName(string setName) =>
             fileName[shortName] = setName;
-        public string getFileName() =>
+        public string GetFileName() =>
             fileName[shortName];
-        public PartDocument getPartDoc() =>
+        public PartDocument GetPartDoc() =>
             partDocument[shortName];
-        public PartComponentDefinition getCompDef() =>
+        public PartComponentDefinition GetCompDef() =>
             partComponentDefinition[shortName];
-        public TransientGeometry getTransGeom() =>
+        public TransientGeometry GetTransGeom() =>
             transientGeometry[shortName];
         // 2D
-        public PlanarSketch sketch(object plane, bool useFaceEdges = false) =>
-            getCompDef().Sketches.Add(plane, useFaceEdges);
-        public Profile profile(PlanarSketch sketch) =>
+        public PlanarSketch Sketch(object plane, bool useFaceEdges = false) =>
+            GetCompDef().Sketches.Add(plane, useFaceEdges);
+        public Profile Profile(PlanarSketch sketch) =>
             sketch.Profiles.AddForSolid();
-        public SketchPoint point(PlanarSketch sketch, double x, double y, bool holeCenter = false) =>
-            sketch.SketchPoints.Add(getTransGeom().CreatePoint2d(x, y), holeCenter);
-        public SketchLine line(PlanarSketch sketch, SketchPoint point1, SketchPoint point2) =>
+        public SketchPoint Point(PlanarSketch sketch, double x, double y, bool holeCenter = false) =>
+            sketch.SketchPoints.Add(GetTransGeom().CreatePoint2d(x, y), holeCenter);
+        public SketchLine Line(PlanarSketch sketch, SketchPoint point1, SketchPoint point2) =>
             sketch.SketchLines.AddByTwoPoints(point1, point2);
-        public SketchCircle circle(PlanarSketch sketch, SketchPoint point, double radius) =>
+        public SketchCircle Circle(PlanarSketch sketch, SketchPoint point, double radius) =>
             sketch.SketchCircles.AddByCenterRadius(point, radius);
         // 3D
         /// <param name="direction">
@@ -72,7 +72,7 @@ namespace AugerMixer
         /// 0-Join;
         /// 1-Cut;
         /// </param>
-        public ExtrudeFeature extrude(Profile profile, double distance, int direction, int operation)
+        public ExtrudeFeature Extrude(Profile profile, double distance, int direction, int operation)
         {
             PartFeatureExtentDirectionEnum extentDirection;
             switch (direction)
@@ -97,13 +97,13 @@ namespace AugerMixer
                     extentOperation = PartFeatureOperationEnum.kCutOperation;
                     break;
             }
-            return getCompDef().Features.ExtrudeFeatures.AddByDistanceExtent(profile, distance, extentDirection, extentOperation, profile);
+            return GetCompDef().Features.ExtrudeFeatures.AddByDistanceExtent(profile, distance, extentDirection, extentOperation, profile);
         }
         /// <param name="operation">
         /// 0-Join;
         /// 1-Cut;
         /// </param>
-        public RevolveFeature revolve(Profile profile, object axis, int operation)
+        public RevolveFeature Revolve(Profile profile, object axis, int operation)
         {
             PartFeatureOperationEnum extentOperation;
             switch (operation)
@@ -115,7 +115,7 @@ namespace AugerMixer
                     extentOperation = PartFeatureOperationEnum.kCutOperation;
                     break;
             }
-            return getCompDef().Features.RevolveFeatures.AddFull(profile, axis, extentOperation);
+            return GetCompDef().Features.RevolveFeatures.AddFull(profile, axis, extentOperation);
         }
         // Assembly
         public void Plane(int OccurrenceOne, int PartPlaneOne, int OccurrenceTwo, int PartPlaneTwo, string Offset = "0", bool MateOrFlush = false)
@@ -175,11 +175,11 @@ namespace AugerMixer
                 assemblyComponentDefinition.Constraints.AddFlushConstraint(oFace1, oFace2, Offset);
         }
         // Additional features
-        public ObjectCollection objectCollection() =>
+        public ObjectCollection ObjectCollection() =>
             app.TransientObjects.CreateObjectCollection();
-        public EdgeCollection edgeCollection() =>
+        public EdgeCollection EdgeCollection() =>
             app.TransientObjects.CreateEdgeCollection();
-        public ThreadFeatures threadFeatures() =>
-            getCompDef().Features.ThreadFeatures;
+        public ThreadFeatures ThreadFeatures() =>
+            GetCompDef().Features.ThreadFeatures;
     }
 }
