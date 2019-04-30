@@ -2,7 +2,7 @@
 
 namespace AugerMixer.Model.Parts
 {
-    class Hold
+    static class Hold
     {
         public static double B = 100, A1 = 65, H = 120, S1 = 4, A = 45, K = 10, K1 = 25, B1 = 50, B2 = 45, C = 40, D6 = 12, A2 = 40, H1 = 8;
         public static void Build(InventorAPI api, string formName)

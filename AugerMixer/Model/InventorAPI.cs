@@ -6,7 +6,7 @@ namespace AugerMixer.Model
     /// <summary>
     /// Contains frequently used API to work with Inventor faster.
     /// </summary>
-    public class InventorAPI
+    class InventorAPI
     {
         private readonly string shortName;
         private Application app = null;

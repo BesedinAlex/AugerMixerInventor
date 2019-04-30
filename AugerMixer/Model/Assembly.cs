@@ -2,7 +2,7 @@
 
 namespace AugerMixer.Model
 {
-    class Assembly
+    static class Assembly
     {
         public static void Build(Application app, System.Windows.Forms.OpenFileDialog openFileDialog, string formName)
         {

@@ -2,7 +2,7 @@
 
 namespace AugerMixer.Model.Parts
 {
-    class Bottom
+    static class Bottom
     {
         public static double D1 = 440, H1 = 30, D2 = 350, H2 = 50, DR = 395, Or = 11; // Основание
         public static double L1 = 480, L2 = 440, T = 15, HB = 250, D3 = 250, H3 = 90; // "Коробка"

@@ -2,7 +2,7 @@
 
 namespace AugerMixer.Model.Parts
 {
-    class Top
+    static class Top
     {
         public static double D = 1530, D1 = 1400, T = 40, H = 200, A = 40, ACount = 8; // Основа крышки
         public static double HR = 305, Hr = 30, RR = 580, DR = 180, Dr = 120, OR = 75, Or = 18, TR = 100; // Резервные проходы

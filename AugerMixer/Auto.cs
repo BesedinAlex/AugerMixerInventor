@@ -6,7 +6,7 @@ namespace AugerMixer
     /// <summary>
     /// Common used methods.
     /// </summary>
-    public static class Auto
+    static class Auto
     {
         /// <summary>
         /// Returns value entered to textBox, if itsn't wrong.

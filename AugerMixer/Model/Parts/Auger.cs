@@ -2,7 +2,7 @@
 
 namespace AugerMixer.Model.Parts
 {
-    class Auger
+    static class Auger
     {
         public static double H = 1700, D = 220, D1 = 100, H1 = 120, H2 = 1300, T = 25, H3 = 1500, A = 40;
         public static void Build(InventorAPI api, string formName)
