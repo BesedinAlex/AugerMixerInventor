@@ -1,6 +1,6 @@
 ﻿namespace AugerMixer
 {
-    partial class Assembly
+    partial class AssemblyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Assembly));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AssemblyForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BuildButton = new System.Windows.Forms.Button();
             this.Hold = new System.Windows.Forms.Button();
@@ -98,7 +98,7 @@
             this.Screw.TabIndex = 3;
             this.Screw.Text = "Создание шнека";
             this.Screw.UseVisualStyleBackColor = true;
-            this.Screw.Click += new System.EventHandler(this.Screw_Click);
+            this.Screw.Click += new System.EventHandler(this.Auger_Click);
             // 
             // Top
             // 

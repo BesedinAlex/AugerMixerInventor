@@ -4,20 +4,15 @@ using System.Windows.Forms;
 namespace AugerMixer
 {
     /// <summary>
-    /// Contains functions that are used in all forms.
+    /// Common used methods.
     /// </summary>
     public static class Auto
     {
         /// <summary>
-        /// Returns value entered to textBox, if it's double.
+        /// Returns value entered to textBox, if itsn't wrong.
+        /// Return defaul value otherwise.
         /// </summary>
-        /// <param name="textBox">
-        /// Where it checks for possible mistakes.
-        /// </param>
-        /// <param name="defaultDouble">
-        /// Returns it, if you make mistake.
-        /// </param>
-        public static double CheckTextBoxChange(TextBox textBox, double defaultDouble)
+        public static double CheckTextBoxChange(TextBox textBox, double defaultValue)
         {
             try
             {
@@ -25,16 +20,16 @@ namespace AugerMixer
             }
             catch
             {
-                MessageBox.Show("При вводе числа была допущена ошибка (например, была введена буква). Вернулось первоначальное значение '" + defaultDouble + "'.", "Ошибка при заполнении поля");
-                textBox.Text = Convert.ToString(defaultDouble);
-                return defaultDouble;
+                MessageBox.Show("При вводе числа была допущена ошибка (например, была введена буква). Вернулось первоначальное значение '" + defaultValue + "'.", "Ошибка при заполнении поля");
+                textBox.Text = Convert.ToString(defaultValue);
+                return defaultValue;
             }
         }
         /// <summary>
         /// Checks if Inventor is active and connects to it.
         /// </summary>
         /// <returns>
-        /// Returns connection to Inventor. If there's no connection, returns null.
+        /// Returns connection to Inventor. Otherwise returns null.
         /// </returns>
         public static Inventor.Application AppActivity(Inventor.Application app)
         {
@@ -44,7 +39,7 @@ namespace AugerMixer
             }
             catch
             {
-                InventorControl IC = new InventorControl();
+                InventorControlForm IC = new InventorControlForm();
                 IC.ShowDialog();
                 return null;
             }
@@ -53,9 +48,9 @@ namespace AugerMixer
         /// Saves the .ipt.
         /// </summary>
         /// <param name="app">
-        /// Links Inventor.
+        /// Link to Inventor.
         /// </param>
-        public static void SavePart(Inventor.Application app, SaveFileDialog saveFileDialog, Form form, InventorAPI api)
+        public static void SavePart(Inventor.Application app, SaveFileDialog saveFileDialog, Form form, Model.InventorAPI api)
         {
             app = AppActivity(app);
             if (app == null)

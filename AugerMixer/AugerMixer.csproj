@@ -51,10 +51,10 @@
     <StartupObject>AugerMixer.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autodesk.Inventor.Interop, Version=23.0.0.0, Culture=neutral, PublicKeyToken=d84147f8b4276564, processorArchitecture=MSIL">
+    <Reference Include="autodesk.inventor.interop, Version=24.0.0.0, Culture=neutral, PublicKeyToken=d84147f8b4276564, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>C:\Program Files\Autodesk\Inventor 2019\Bin\Public Assemblies\Autodesk.Inventor.Interop.dll</HintPath>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Autodesk.Inventor.Interop\v4.0_24.0.0.0__d84147f8b4276564\autodesk.inventor.interop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,66 +63,71 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auto.cs" />
-    <Compile Include="Bottom.cs">
+    <Compile Include="BottomForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bottom.Designer.cs">
-      <DependentUpon>Bottom.cs</DependentUpon>
+    <Compile Include="BottomForm.Designer.cs">
+      <DependentUpon>BottomForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Build.cs" />
-    <Compile Include="InventorAPI.cs" />
-    <Compile Include="Hold.cs">
+    <Compile Include="Model\Assembly.cs" />
+    <Compile Include="Model\InventorAPI.cs" />
+    <Compile Include="Model\Parts\Bottom.cs" />
+    <Compile Include="Model\Parts\Hold.cs" />
+    <Compile Include="Model\Parts\MainBody.cs" />
+    <Compile Include="Model\Parts\Auger.cs" />
+    <Compile Include="Model\Parts\Top.cs" />
+    <Compile Include="HoldForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Hold.Designer.cs">
-      <DependentUpon>Hold.cs</DependentUpon>
+    <Compile Include="HoldForm.Designer.cs">
+      <DependentUpon>HoldForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Auger.cs">
+    <Compile Include="AugerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Auger.Designer.cs">
-      <DependentUpon>Auger.cs</DependentUpon>
+    <Compile Include="AugerForm.Designer.cs">
+      <DependentUpon>AugerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Top.cs">
+    <Compile Include="TopForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Top.Designer.cs">
-      <DependentUpon>Top.cs</DependentUpon>
+    <Compile Include="TopForm.Designer.cs">
+      <DependentUpon>TopForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventor Control.cs">
+    <Compile Include="InventorControlForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventor Control.Designer.cs">
-      <DependentUpon>Inventor Control.cs</DependentUpon>
+    <Compile Include="InventorControlForm.Designer.cs">
+      <DependentUpon>InventorControlForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main Body.cs">
+    <Compile Include="MainBodyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main Body.Designer.cs">
-      <DependentUpon>Main Body.cs</DependentUpon>
+    <Compile Include="MainBodyForm.Designer.cs">
+      <DependentUpon>MainBodyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Assembly.cs">
+    <Compile Include="AssemblyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Assembly.Designer.cs">
-      <DependentUpon>Assembly.cs</DependentUpon>
+    <Compile Include="AssemblyForm.Designer.cs">
+      <DependentUpon>AssemblyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Bottom.resx">
-      <DependentUpon>Bottom.cs</DependentUpon>
+    <EmbeddedResource Include="BottomForm.resx">
+      <DependentUpon>BottomForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Hold.resx">
-      <DependentUpon>Hold.cs</DependentUpon>
+    <EmbeddedResource Include="HoldForm.resx">
+      <DependentUpon>HoldForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventor Control.resx">
-      <DependentUpon>Inventor Control.cs</DependentUpon>
+    <EmbeddedResource Include="InventorControlForm.resx">
+      <DependentUpon>InventorControlForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main Body.resx">
-      <DependentUpon>Main Body.cs</DependentUpon>
+    <EmbeddedResource Include="MainBodyForm.resx">
+      <DependentUpon>MainBodyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assembly.resx">
-      <DependentUpon>Assembly.cs</DependentUpon>
+    <EmbeddedResource Include="AssemblyForm.resx">
+      <DependentUpon>AssemblyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -134,11 +139,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Auger.resx">
-      <DependentUpon>Auger.cs</DependentUpon>
+    <EmbeddedResource Include="AugerForm.resx">
+      <DependentUpon>AugerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Top.resx">
-      <DependentUpon>Top.cs</DependentUpon>
+    <EmbeddedResource Include="TopForm.resx">
+      <DependentUpon>TopForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

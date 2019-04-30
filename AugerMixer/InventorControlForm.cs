@@ -3,10 +3,10 @@ using System.Windows.Forms;
 
 namespace AugerMixer
 {
-    public partial class InventorControl : Form
+    public partial class InventorControlForm : Form
     {
         private Inventor.Application app = null;
-        public InventorControl()
+        public InventorControlForm()
         {
             InitializeComponent();
             try
@@ -23,8 +23,8 @@ namespace AugerMixer
                 inventorVersions.Enabled = true;
                 InventorLaunch.Enabled = true;
             }
-            inventorVersions.Items.AddRange(new object[] { "2015", "2016", "2017", "2018", "2019" });
-            inventorVersions.Text = "2019";
+            inventorVersions.Items.AddRange(new object[] { "2015", "2016", "2017", "2018", "2019", "2020" });
+            inventorVersions.Text = "2020";
         }
         private void LaunchTry(char drive)
         {

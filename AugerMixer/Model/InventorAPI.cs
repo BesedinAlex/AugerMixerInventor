@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Inventor;
 
-namespace AugerMixer
+namespace AugerMixer.Model
 {
     /// <summary>
     /// Contains frequently used API to work with Inventor faster.
@@ -15,12 +15,6 @@ namespace AugerMixer
         private static Dictionary<string, PartComponentDefinition> partComponentDefinition = new Dictionary<string, PartComponentDefinition>();
         private static Dictionary<string, TransientGeometry> transientGeometry = new Dictionary<string, TransientGeometry>();
         private AssemblyComponentDefinition assemblyComponentDefinition;
-        /// <summary>
-        /// To build parts.
-        /// </summary>
-        /// <param name="app">
-        /// Links the app.
-        /// </param>
         public InventorAPI(Application app, string shortName, string longName)
         {
             this.shortName = shortName;
@@ -31,9 +25,6 @@ namespace AugerMixer
             fileName[shortName] = null;
             partDocument[shortName].DisplayName = longName;
         }
-        /// <summary>
-        /// To assemble parts.
-        /// </summary>
         public InventorAPI(AssemblyComponentDefinition assemblyComponentDefinition) =>
             this.assemblyComponentDefinition = assemblyComponentDefinition;
         // Accessing dictionaries
@@ -120,16 +111,16 @@ namespace AugerMixer
         // Assembly
         public void Plane(int OccurrenceOne, int PartPlaneOne, int OccurrenceTwo, int PartPlaneTwo, string Offset = "0", bool MateOrFlush = false)
         {
-            ComponentOccurrence oOcc1 = assemblyComponentDefinition.Occurrences[OccurrenceOne];
-            ComponentOccurrence oOcc2 = assemblyComponentDefinition.Occurrences[OccurrenceTwo];
-            PartComponentDefinition oPartComDef = (PartComponentDefinition)oOcc1.Definition;
-            WorkPlane oPartPlane1 = oPartComDef.WorkPlanes[PartPlaneOne];
+            var oOcc1 = assemblyComponentDefinition.Occurrences[OccurrenceOne];
+            var oOcc2 = assemblyComponentDefinition.Occurrences[OccurrenceTwo];
+            var oPartComDef = (PartComponentDefinition)oOcc1.Definition;
+            var oPartPlane1 = oPartComDef.WorkPlanes[PartPlaneOne];
             oPartComDef = (PartComponentDefinition)oOcc2.Definition;
-            WorkPlane oPartPlane2 = oPartComDef.WorkPlanes[PartPlaneTwo];
+            var oPartPlane2 = oPartComDef.WorkPlanes[PartPlaneTwo];
             oOcc1.CreateGeometryProxy(oPartPlane1, out object oAsmPlane1Obj);
-            WorkPlaneProxy oAsmPlane1 = (WorkPlaneProxy)oAsmPlane1Obj;
+            var oAsmPlane1 = (WorkPlaneProxy)oAsmPlane1Obj;
             oOcc2.CreateGeometryProxy(oPartPlane2, out object oAsmPlane2Obj);
-            WorkPlaneProxy oAsmPlane2 = (WorkPlaneProxy)oAsmPlane2Obj;
+            var oAsmPlane2 = (WorkPlaneProxy)oAsmPlane2Obj;
             if (MateOrFlush)
                 assemblyComponentDefinition.Constraints.AddMateConstraint(oAsmPlane1, oAsmPlane2, Offset);
             else
@@ -137,38 +128,38 @@ namespace AugerMixer
         }
         public void Axis(int OccurrenceOne, int PartAxisOne, int OccurrenceTwo, int PartAxisTwo, string Offset = "0")
         {
-            ComponentOccurrence oOcc1 = assemblyComponentDefinition.Occurrences[OccurrenceOne];
-            ComponentOccurrence oOcc2 = assemblyComponentDefinition.Occurrences[OccurrenceTwo];
-            PartComponentDefinition oPartComDef = (PartComponentDefinition)oOcc1.Definition;
-            WorkAxis oPartAxis1 = oPartComDef.WorkAxes[PartAxisOne];
+            var oOcc1 = assemblyComponentDefinition.Occurrences[OccurrenceOne];
+            var oOcc2 = assemblyComponentDefinition.Occurrences[OccurrenceTwo];
+            var oPartComDef = (PartComponentDefinition)oOcc1.Definition;
+            var oPartAxis1 = oPartComDef.WorkAxes[PartAxisOne];
             oPartComDef = (PartComponentDefinition)oOcc2.Definition;
-            WorkAxis oPartAxis2 = oPartComDef.WorkAxes[PartAxisTwo];
+            var oPartAxis2 = oPartComDef.WorkAxes[PartAxisTwo];
             oOcc1.CreateGeometryProxy(oPartAxis1, out object oAsmAxis1Obj);
-            WorkAxisProxy oAsmAxis1 = (WorkAxisProxy)oAsmAxis1Obj;
+            var oAsmAxis1 = (WorkAxisProxy)oAsmAxis1Obj;
             oOcc2.CreateGeometryProxy(oPartAxis2, out object oAsmAxis2Obj);
-            WorkAxisProxy oAsmAxis2 = (WorkAxisProxy)oAsmAxis2Obj;
+            var oAsmAxis2 = (WorkAxisProxy)oAsmAxis2Obj;
             assemblyComponentDefinition.Constraints.AddMateConstraint(oAsmAxis1, oAsmAxis2, Offset);
         }
         public void PlaneAngle(int OccurrenceOne, int PartPlaneOne, int OccurrenceTwo, int PartPlaneTwo, string Offset = "0")
         {
-            ComponentOccurrence oOcc1 = assemblyComponentDefinition.Occurrences[OccurrenceOne];
-            ComponentOccurrence oOcc2 = assemblyComponentDefinition.Occurrences[OccurrenceTwo];
-            PartComponentDefinition oPartComDef = (PartComponentDefinition)oOcc1.Definition;
-            WorkPlane oPartPlane1 = oPartComDef.WorkPlanes[PartPlaneOne];
+            var oOcc1 = assemblyComponentDefinition.Occurrences[OccurrenceOne];
+            var oOcc2 = assemblyComponentDefinition.Occurrences[OccurrenceTwo];
+            var oPartComDef = (PartComponentDefinition)oOcc1.Definition;
+            var oPartPlane1 = oPartComDef.WorkPlanes[PartPlaneOne];
             oPartComDef = (PartComponentDefinition)oOcc2.Definition;
-            WorkPlane oPartPlane2 = oPartComDef.WorkPlanes[PartPlaneTwo];
+            var oPartPlane2 = oPartComDef.WorkPlanes[PartPlaneTwo];
             oOcc1.CreateGeometryProxy(oPartPlane1, out object oAsmPlane1Obj);
-            WorkPlaneProxy oAsmPlane1 = (WorkPlaneProxy)oAsmPlane1Obj;
+            var oAsmPlane1 = (WorkPlaneProxy)oAsmPlane1Obj;
             oOcc2.CreateGeometryProxy(oPartPlane2, out object oAsmPlane2Obj);
-            WorkPlaneProxy oAsmPlane2 = (WorkPlaneProxy)oAsmPlane2Obj;
+            var oAsmPlane2 = (WorkPlaneProxy)oAsmPlane2Obj;
             assemblyComponentDefinition.Constraints.AddAngleConstraint(oAsmPlane1, oAsmPlane2, Offset);
         }
         public void Surface(int OccurrenceOne, int PartFaceOne, int OccurrenceTwo, int PartFaceTwo, double Offset = 0, bool MateOrFlush = true)
         {
-            ComponentOccurrence oOcc1 = assemblyComponentDefinition.Occurrences[OccurrenceOne];
-            ComponentOccurrence oOcc2 = assemblyComponentDefinition.Occurrences[OccurrenceTwo];
-            Face oFace1 = oOcc1.SurfaceBodies[1].Faces[PartFaceOne];
-            Face oFace2 = oOcc2.SurfaceBodies[1].Faces[PartFaceTwo];
+            var oOcc1 = assemblyComponentDefinition.Occurrences[OccurrenceOne];
+            var oOcc2 = assemblyComponentDefinition.Occurrences[OccurrenceTwo];
+            var oFace1 = oOcc1.SurfaceBodies[1].Faces[PartFaceOne];
+            var oFace2 = oOcc2.SurfaceBodies[1].Faces[PartFaceTwo];
             if (MateOrFlush)
                 assemblyComponentDefinition.Constraints.AddMateConstraint(oFace1, oFace2, Offset);
             else
