@@ -1,6 +1,6 @@
-﻿namespace AugerMixer
+﻿namespace AugerMixer.Forms
 {
-    partial class AssemblyForm
+    partial class Assembly
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AssemblyForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Assembly));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BuildButton = new System.Windows.Forms.Button();
             this.Hold = new System.Windows.Forms.Button();

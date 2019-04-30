@@ -13,7 +13,7 @@ namespace AugerMixer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AssemblyForm());
+            Application.Run(new Forms.Assembly());
         }
     }
 }

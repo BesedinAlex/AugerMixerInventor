@@ -39,8 +39,7 @@ namespace AugerMixer
             }
             catch
             {
-                InventorControlForm IC = new InventorControlForm();
-                IC.ShowDialog();
+                new Forms.InventorControl().ShowDialog();
                 return null;
             }
         }

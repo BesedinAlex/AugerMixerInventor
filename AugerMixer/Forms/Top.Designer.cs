@@ -1,6 +1,6 @@
-﻿namespace AugerMixer
+﻿namespace AugerMixer.Forms
 {
-    partial class TopForm
+    partial class Top
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TopForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Top));
             this.BuildButton = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();

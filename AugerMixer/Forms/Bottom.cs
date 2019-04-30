@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace AugerMixer
+namespace AugerMixer.Forms
 {
-    public partial class BottomForm : Form
+    public partial class Bottom : Form
     {
         private Model.InventorAPI api;
         private Inventor.Application app = null;
-        public BottomForm()
+        public Bottom()
         {
             InitializeComponent();
             textBox1.Text = Convert.ToString(Model.Parts.Bottom.H1 + Model.Parts.Bottom.H2 + Model.Parts.Bottom.HB + Model.Parts.Bottom.H3);

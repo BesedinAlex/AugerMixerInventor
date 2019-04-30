@@ -1,6 +1,6 @@
-﻿namespace AugerMixer
+﻿namespace AugerMixer.Forms
 {
-    partial class InventorControlForm
+    partial class InventorControl
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventorControlForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventorControl));
             this.label1 = new System.Windows.Forms.Label();
             this.inventorVersions = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();

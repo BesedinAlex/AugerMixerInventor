@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace AugerMixer
+namespace AugerMixer.Forms
 {
-    public partial class HoldForm : Form
+    public partial class Hold : Form
     {
         private Model.InventorAPI api;
         private Inventor.Application app = null;
-        public HoldForm()
+        public Hold()
         {
             InitializeComponent();
             comboBox1.Items.AddRange(new object[] { 100, 160, 255 });

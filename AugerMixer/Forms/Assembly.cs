@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace AugerMixer
+namespace AugerMixer.Forms
 {
-    public partial class AssemblyForm : Form
+    public partial class Assembly : Form
     {
         private Inventor.Application app = null;
-        public AssemblyForm() =>
+        public Assembly() =>
             InitializeComponent();
         private void InventorControl_Click(object sender, EventArgs e) =>
-            new InventorControlForm().ShowDialog();
+            new InventorControl().ShowDialog();
         private void MainBody_Click(object sender, EventArgs e) =>
-            new MainBodyForm().ShowDialog();
+            new MainBody().ShowDialog();
         private void Top_Click(object sender, EventArgs e) =>
-            new TopForm().ShowDialog();
+            new Top().ShowDialog();
         private void Auger_Click(object sender, EventArgs e) =>
-            new AugerForm().ShowDialog();
+            new Auger().ShowDialog();
         private void Bottom_Click(object sender, EventArgs e) =>
-            new BottomForm().ShowDialog();
+            new Bottom().ShowDialog();
         private void Hold_Click(object sender, EventArgs e) =>
-            new HoldForm().ShowDialog();
+            new Hold().ShowDialog();
         private void Build_Click(object sender, EventArgs e)
         {
             app = Auto.AppActivity(app);

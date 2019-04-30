@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace AugerMixer
+namespace AugerMixer.Forms
 {
-    public partial class InventorControlForm : Form
+    public partial class InventorControl : Form
     {
         private Inventor.Application app = null;
-        public InventorControlForm()
+        public InventorControl()
         {
             InitializeComponent();
             try

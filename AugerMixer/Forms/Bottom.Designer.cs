@@ -1,6 +1,6 @@
-﻿namespace AugerMixer
+﻿namespace AugerMixer.Forms
 {
-    partial class BottomForm
+    partial class Bottom
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BottomForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bottom));
             this.Save = new System.Windows.Forms.Button();
             this.BuildButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
