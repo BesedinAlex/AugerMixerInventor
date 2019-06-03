@@ -1,5 +1,7 @@
 # Auger Mixer in Autodesk Inventor
 
-To compile an app you need to add a reference to Inventor Object Library (autodesk.inventor.interop.dll).
+This program was written to automatically create Auger Mixer in Autodesk Inventor which was my coursework back in university.
 
-Usually it can be found on path `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Autodesk.Inventor.Interop\*`.
+## Build
+
+This is basic Windows Forms .NET app so you just need Visual Studio to compile it. Beforehand you need to add a reference with it to Inventor Object Library (autodesk.inventor.interop.dll). Usually it can be found on path `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Autodesk.Inventor.Interop\*`.
