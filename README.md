@@ -1,6 +1,6 @@
 # Auger Mixer in Autodesk Inventor
 
-This program was written to automatically create Auger Mixer in Autodesk Inventor which was my coursework back in university.
+This program was written to automatically create Auger Mixer in Autodesk Inventor which was my coursework back in university days.
 
 ## Build
 
